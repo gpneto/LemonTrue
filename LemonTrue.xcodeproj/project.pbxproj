@@ -1,0 +1,354 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		81C5CF2720E3CDFD00912118 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81C5CF2620E3CDFD00912118 /* AppDelegate.swift */; };
+		81C5CF2920E3CDFD00912118 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81C5CF2820E3CDFD00912118 /* ViewController.swift */; };
+		81C5CF2C20E3CDFD00912118 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81C5CF2A20E3CDFD00912118 /* Main.storyboard */; };
+		81C5CF2F20E3CDFD00912118 /* LemonTrue.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 81C5CF2D20E3CDFD00912118 /* LemonTrue.xcdatamodeld */; };
+		81C5CF3120E3CDFF00912118 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 81C5CF3020E3CDFF00912118 /* Assets.xcassets */; };
+		81C5CF3420E3CDFF00912118 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81C5CF3220E3CDFF00912118 /* LaunchScreen.storyboard */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		81C5CF2320E3CDFD00912118 /* LemonTrue.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LemonTrue.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		81C5CF2620E3CDFD00912118 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		81C5CF2820E3CDFD00912118 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		81C5CF2B20E3CDFD00912118 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		81C5CF2E20E3CDFD00912118 /* LemonTrue.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = LemonTrue.xcdatamodel; sourceTree = "<group>"; };
+		81C5CF3020E3CDFF00912118 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		81C5CF3320E3CDFF00912118 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		81C5CF3520E3CDFF00912118 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		81C5CF2020E3CDFD00912118 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		81C5CF1A20E3CDFD00912118 = {
+			isa = PBXGroup;
+			children = (
+				81C5CF2520E3CDFD00912118 /* LemonTrue */,
+				81C5CF2420E3CDFD00912118 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		81C5CF2420E3CDFD00912118 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				81C5CF2320E3CDFD00912118 /* LemonTrue.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		81C5CF2520E3CDFD00912118 /* LemonTrue */ = {
+			isa = PBXGroup;
+			children = (
+				81C5CF2620E3CDFD00912118 /* AppDelegate.swift */,
+				81C5CF2820E3CDFD00912118 /* ViewController.swift */,
+				81C5CF2A20E3CDFD00912118 /* Main.storyboard */,
+				81C5CF3020E3CDFF00912118 /* Assets.xcassets */,
+				81C5CF3220E3CDFF00912118 /* LaunchScreen.storyboard */,
+				81C5CF3520E3CDFF00912118 /* Info.plist */,
+				81C5CF2D20E3CDFD00912118 /* LemonTrue.xcdatamodeld */,
+			);
+			path = LemonTrue;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		81C5CF2220E3CDFD00912118 /* LemonTrue */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 81C5CF3820E3CDFF00912118 /* Build configuration list for PBXNativeTarget "LemonTrue" */;
+			buildPhases = (
+				81C5CF1F20E3CDFD00912118 /* Sources */,
+				81C5CF2020E3CDFD00912118 /* Frameworks */,
+				81C5CF2120E3CDFD00912118 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = LemonTrue;
+			productName = LemonTrue;
+			productReference = 81C5CF2320E3CDFD00912118 /* LemonTrue.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		81C5CF1B20E3CDFD00912118 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0930;
+				LastUpgradeCheck = 0930;
+				ORGANIZATIONNAME = "Guilherme Pereira Neto";
+				TargetAttributes = {
+					81C5CF2220E3CDFD00912118 = {
+						CreatedOnToolsVersion = 9.3;
+					};
+				};
+			};
+			buildConfigurationList = 81C5CF1E20E3CDFD00912118 /* Build configuration list for PBXProject "LemonTrue" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 81C5CF1A20E3CDFD00912118;
+			productRefGroup = 81C5CF2420E3CDFD00912118 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				81C5CF2220E3CDFD00912118 /* LemonTrue */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		81C5CF2120E3CDFD00912118 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				81C5CF3420E3CDFF00912118 /* LaunchScreen.storyboard in Resources */,
+				81C5CF3120E3CDFF00912118 /* Assets.xcassets in Resources */,
+				81C5CF2C20E3CDFD00912118 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		81C5CF1F20E3CDFD00912118 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				81C5CF2920E3CDFD00912118 /* ViewController.swift in Sources */,
+				81C5CF2F20E3CDFD00912118 /* LemonTrue.xcdatamodeld in Sources */,
+				81C5CF2720E3CDFD00912118 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		81C5CF2A20E3CDFD00912118 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				81C5CF2B20E3CDFD00912118 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		81C5CF3220E3CDFF00912118 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				81C5CF3320E3CDFF00912118 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		81C5CF3620E3CDFF00912118 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		81C5CF3720E3CDFF00912118 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		81C5CF3920E3CDFF00912118 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = LemonTrue/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = br.com.lemomtrue.LemonTrue;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		81C5CF3A20E3CDFF00912118 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = LemonTrue/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = br.com.lemomtrue.LemonTrue;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		81C5CF1E20E3CDFD00912118 /* Build configuration list for PBXProject "LemonTrue" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				81C5CF3620E3CDFF00912118 /* Debug */,
+				81C5CF3720E3CDFF00912118 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		81C5CF3820E3CDFF00912118 /* Build configuration list for PBXNativeTarget "LemonTrue" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				81C5CF3920E3CDFF00912118 /* Debug */,
+				81C5CF3A20E3CDFF00912118 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		81C5CF2D20E3CDFD00912118 /* LemonTrue.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				81C5CF2E20E3CDFD00912118 /* LemonTrue.xcdatamodel */,
+			);
+			currentVersion = 81C5CF2E20E3CDFD00912118 /* LemonTrue.xcdatamodel */;
+			path = LemonTrue.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = 81C5CF1B20E3CDFD00912118 /* Project object */;
+}
