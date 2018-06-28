@@ -13,9 +13,23 @@
 		81C5CF2F20E3CDFD00912118 /* LemonTrue.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 81C5CF2D20E3CDFD00912118 /* LemonTrue.xcdatamodeld */; };
 		81C5CF3120E3CDFF00912118 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 81C5CF3020E3CDFF00912118 /* Assets.xcassets */; };
 		81C5CF3420E3CDFF00912118 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81C5CF3220E3CDFF00912118 /* LaunchScreen.storyboard */; };
+		81ED5A3C20E5234700FD5821 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 81ED5A3B20E5234700FD5821 /* GoogleService-Info.plist */; };
+		81ED5A4B20E5256400FD5821 /* ConversationsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81ED5A4520E5256200FD5821 /* ConversationsVC.swift */; };
+		81ED5A4C20E5256400FD5821 /* LandingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81ED5A4620E5256200FD5821 /* LandingVC.swift */; };
+		81ED5A4D20E5256400FD5821 /* VCCells.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81ED5A4720E5256200FD5821 /* VCCells.swift */; };
+		81ED5A4E20E5256400FD5821 /* WelcomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81ED5A4820E5256200FD5821 /* WelcomeVC.swift */; };
+		81ED5A4F20E5256400FD5821 /* NavVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81ED5A4920E5256300FD5821 /* NavVC.swift */; };
+		81ED5A5020E5256400FD5821 /* ChatVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81ED5A4A20E5256300FD5821 /* ChatVC.swift */; };
+		81ED5A5A20E5267E00FD5821 /* Helper Files.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81ED5A5820E5265B00FD5821 /* Helper Files.swift */; };
+		81ED5A5B20E5269000FD5821 /* Conversation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81ED5A4020E523B200FD5821 /* Conversation.swift */; };
+		81ED5A5C20E5269000FD5821 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81ED5A4120E523B200FD5821 /* Message.swift */; };
+		81ED5A5D20E5269000FD5821 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81ED5A4220E523B200FD5821 /* User.swift */; };
+		E37A248FCD1312AD6E99D9B6 /* Pods_LemonTrue.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3836D6E553EBF99CB1C543DC /* Pods_LemonTrue.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3836D6E553EBF99CB1C543DC /* Pods_LemonTrue.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LemonTrue.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		5F83F79CB34E659406121A88 /* Pods-LemonTrue.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LemonTrue.debug.xcconfig"; path = "Pods/Target Support Files/Pods-LemonTrue/Pods-LemonTrue.debug.xcconfig"; sourceTree = "<group>"; };
 		81C5CF2320E3CDFD00912118 /* LemonTrue.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LemonTrue.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		81C5CF2620E3CDFD00912118 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		81C5CF2820E3CDFD00912118 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -24,6 +38,18 @@
 		81C5CF3020E3CDFF00912118 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		81C5CF3320E3CDFF00912118 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		81C5CF3520E3CDFF00912118 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		81ED5A3B20E5234700FD5821 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		81ED5A4020E523B200FD5821 /* Conversation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Conversation.swift; sourceTree = "<group>"; };
+		81ED5A4120E523B200FD5821 /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
+		81ED5A4220E523B200FD5821 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		81ED5A4520E5256200FD5821 /* ConversationsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConversationsVC.swift; sourceTree = "<group>"; };
+		81ED5A4620E5256200FD5821 /* LandingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LandingVC.swift; sourceTree = "<group>"; };
+		81ED5A4720E5256200FD5821 /* VCCells.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VCCells.swift; sourceTree = "<group>"; };
+		81ED5A4820E5256200FD5821 /* WelcomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeVC.swift; sourceTree = "<group>"; };
+		81ED5A4920E5256300FD5821 /* NavVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavVC.swift; sourceTree = "<group>"; };
+		81ED5A4A20E5256300FD5821 /* ChatVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatVC.swift; sourceTree = "<group>"; };
+		81ED5A5820E5265B00FD5821 /* Helper Files.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Helper Files.swift"; sourceTree = "<group>"; };
+		FF99977EC77DB12B1BDE24AF /* Pods-LemonTrue.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LemonTrue.release.xcconfig"; path = "Pods/Target Support Files/Pods-LemonTrue/Pods-LemonTrue.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,17 +57,29 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E37A248FCD1312AD6E99D9B6 /* Pods_LemonTrue.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1A88C0AEF67ECF4DDECEC999 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				3836D6E553EBF99CB1C543DC /* Pods_LemonTrue.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		81C5CF1A20E3CDFD00912118 = {
 			isa = PBXGroup;
 			children = (
+				81ED5A3B20E5234700FD5821 /* GoogleService-Info.plist */,
 				81C5CF2520E3CDFD00912118 /* LemonTrue */,
 				81C5CF2420E3CDFD00912118 /* Products */,
+				CAC3ED5B8696176988F86208 /* Pods */,
+				1A88C0AEF67ECF4DDECEC999 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -56,6 +94,8 @@
 		81C5CF2520E3CDFD00912118 /* LemonTrue */ = {
 			isa = PBXGroup;
 			children = (
+				81ED5A5F20E526B000FD5821 /* ViewControllers */,
+				81ED5A5E20E5269800FD5821 /* Model */,
 				81C5CF2620E3CDFD00912118 /* AppDelegate.swift */,
 				81C5CF2820E3CDFD00912118 /* ViewController.swift */,
 				81C5CF2A20E3CDFD00912118 /* Main.storyboard */,
@@ -67,6 +107,39 @@
 			path = LemonTrue;
 			sourceTree = "<group>";
 		};
+		81ED5A5E20E5269800FD5821 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				81ED5A4120E523B200FD5821 /* Message.swift */,
+				81ED5A4220E523B200FD5821 /* User.swift */,
+				81ED5A4020E523B200FD5821 /* Conversation.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		81ED5A5F20E526B000FD5821 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				81ED5A4A20E5256300FD5821 /* ChatVC.swift */,
+				81ED5A4520E5256200FD5821 /* ConversationsVC.swift */,
+				81ED5A4620E5256200FD5821 /* LandingVC.swift */,
+				81ED5A4920E5256300FD5821 /* NavVC.swift */,
+				81ED5A4720E5256200FD5821 /* VCCells.swift */,
+				81ED5A4820E5256200FD5821 /* WelcomeVC.swift */,
+				81ED5A5820E5265B00FD5821 /* Helper Files.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		CAC3ED5B8696176988F86208 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				5F83F79CB34E659406121A88 /* Pods-LemonTrue.debug.xcconfig */,
+				FF99977EC77DB12B1BDE24AF /* Pods-LemonTrue.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -74,9 +147,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 81C5CF3820E3CDFF00912118 /* Build configuration list for PBXNativeTarget "LemonTrue" */;
 			buildPhases = (
+				E744E6A35347891CBC313FE4 /* [CP] Check Pods Manifest.lock */,
 				81C5CF1F20E3CDFD00912118 /* Sources */,
 				81C5CF2020E3CDFD00912118 /* Frameworks */,
 				81C5CF2120E3CDFD00912118 /* Resources */,
+				41F3A28857769329AE67643B /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -126,6 +201,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				81C5CF3420E3CDFF00912118 /* LaunchScreen.storyboard in Resources */,
+				81ED5A3C20E5234700FD5821 /* GoogleService-Info.plist in Resources */,
 				81C5CF3120E3CDFF00912118 /* Assets.xcassets in Resources */,
 				81C5CF2C20E3CDFD00912118 /* Main.storyboard in Resources */,
 			);
@@ -133,14 +209,67 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		41F3A28857769329AE67643B /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-LemonTrue/Pods-LemonTrue-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
+				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-LemonTrue/Pods-LemonTrue-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E744E6A35347891CBC313FE4 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-LemonTrue-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		81C5CF1F20E3CDFD00912118 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				81ED5A5D20E5269000FD5821 /* User.swift in Sources */,
+				81ED5A5020E5256400FD5821 /* ChatVC.swift in Sources */,
 				81C5CF2920E3CDFD00912118 /* ViewController.swift in Sources */,
+				81ED5A4C20E5256400FD5821 /* LandingVC.swift in Sources */,
+				81ED5A4D20E5256400FD5821 /* VCCells.swift in Sources */,
 				81C5CF2F20E3CDFD00912118 /* LemonTrue.xcdatamodeld in Sources */,
+				81ED5A5B20E5269000FD5821 /* Conversation.swift in Sources */,
+				81ED5A4F20E5256400FD5821 /* NavVC.swift in Sources */,
 				81C5CF2720E3CDFD00912118 /* AppDelegate.swift in Sources */,
+				81ED5A4E20E5256400FD5821 /* WelcomeVC.swift in Sources */,
+				81ED5A5C20E5269000FD5821 /* Message.swift in Sources */,
+				81ED5A5A20E5267E00FD5821 /* Helper Files.swift in Sources */,
+				81ED5A4B20E5256400FD5821 /* ConversationsVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -282,6 +411,7 @@
 		};
 		81C5CF3920E3CDFF00912118 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5F83F79CB34E659406121A88 /* Pods-LemonTrue.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -299,6 +429,7 @@
 		};
 		81C5CF3A20E3CDFF00912118 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = FF99977EC77DB12B1BDE24AF /* Pods-LemonTrue.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
