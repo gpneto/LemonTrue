@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		819CC97620EBBADE008E9411 /* newMessage.wav in Resources */ = {isa = PBXBuildFile; fileRef = 819CC97520EBBADE008E9411 /* newMessage.wav */; };
 		81C5CF2720E3CDFD00912118 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81C5CF2620E3CDFD00912118 /* AppDelegate.swift */; };
 		81C5CF2920E3CDFD00912118 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81C5CF2820E3CDFD00912118 /* ViewController.swift */; };
 		81C5CF2C20E3CDFD00912118 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81C5CF2A20E3CDFD00912118 /* Main.storyboard */; };
@@ -30,6 +31,7 @@
 /* Begin PBXFileReference section */
 		3836D6E553EBF99CB1C543DC /* Pods_LemonTrue.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LemonTrue.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5F83F79CB34E659406121A88 /* Pods-LemonTrue.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LemonTrue.debug.xcconfig"; path = "Pods/Target Support Files/Pods-LemonTrue/Pods-LemonTrue.debug.xcconfig"; sourceTree = "<group>"; };
+		819CC97520EBBADE008E9411 /* newMessage.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = newMessage.wav; sourceTree = "<group>"; };
 		81C5CF2320E3CDFD00912118 /* LemonTrue.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LemonTrue.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		81C5CF2620E3CDFD00912118 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		81C5CF2820E3CDFD00912118 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -101,6 +103,7 @@
 				81C5CF2A20E3CDFD00912118 /* Main.storyboard */,
 				81C5CF3020E3CDFF00912118 /* Assets.xcassets */,
 				81C5CF3220E3CDFF00912118 /* LaunchScreen.storyboard */,
+				819CC97520EBBADE008E9411 /* newMessage.wav */,
 				81C5CF3520E3CDFF00912118 /* Info.plist */,
 				81C5CF2D20E3CDFD00912118 /* LemonTrue.xcdatamodeld */,
 			);
@@ -203,6 +206,7 @@
 				81C5CF3420E3CDFF00912118 /* LaunchScreen.storyboard in Resources */,
 				81ED5A3C20E5234700FD5821 /* GoogleService-Info.plist in Resources */,
 				81C5CF3120E3CDFF00912118 /* Assets.xcassets in Resources */,
+				819CC97620EBBADE008E9411 /* newMessage.wav in Resources */,
 				81C5CF2C20E3CDFD00912118 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

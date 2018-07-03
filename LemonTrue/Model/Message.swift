@@ -153,18 +153,30 @@ class Message {
             case .photo:
                 let imageData = UIImageJPEGRepresentation((message.content as! UIImage), 0.5)
                 let child = UUID().uuidString
-                Storage.storage().reference().child("messagePics").child(child).putData(imageData!, metadata: nil, completion: { (metadata, error) in
+               let storageRef = Storage.storage().reference().child("messagePics").child(child)
+
+                storageRef.putData(imageData!, metadata: nil, completion: { (metadata, error) in
                     if error == nil {
-                        metadata?.storageReference?.downloadURL(completion: { (url, error) in
+                        
+                        
+                        storageRef.downloadURL { url, error in
+                            
+                            
                             if let error = error {
-                                print(error.localizedDescription)
-                                return
+                                // Handle any errors
+                            } else {
+                                
+                                let values = ["type": "photo", "content": url?.absoluteString, "fromID": currentUserID, "toID": toID, "timestamp": message.timestamp, "isRead": false] as [String : Any]
+                                Message.uploadMessage(withValues: values, toID: toID, completion: { (status) in
+                                    completion(status)
+                                })
+                                // Get the download URL for 'images/stars.jpg'
                             }
-                            let values = ["type": "photo", "content": url?.absoluteString, "fromID": currentUserID, "toID": toID, "timestamp": message.timestamp, "isRead": false] as [String : Any]
-                            Message.uploadMessage(withValues: values, toID: toID, completion: { (status) in
-                                completion(status)
-                            })
-                        })
+                        }
+                        
+                        
+                    
+                        
                         
                     }
                 })
