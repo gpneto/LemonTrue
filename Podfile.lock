@@ -1,21 +1,31 @@
 PODS:
-  - Firebase/Auth (5.3.0):
+  - Bolts (1.9.0):
+    - Bolts/AppLinks (= 1.9.0)
+    - Bolts/Tasks (= 1.9.0)
+  - Bolts/AppLinks (1.9.0):
+    - Bolts/Tasks
+  - Bolts/Tasks (1.9.0)
+  - FBSDKCoreKit (4.34.0):
+    - Bolts (~> 1.7)
+  - FBSDKLoginKit (4.34.0):
+    - FBSDKCoreKit
+  - Firebase/Auth (5.4.0):
     - Firebase/CoreOnly
-    - FirebaseAuth (= 5.0.1)
-  - Firebase/CoreOnly (5.3.0):
-    - FirebaseCore (= 5.0.4)
-  - Firebase/Database (5.3.0):
+    - FirebaseAuth (= 5.0.2)
+  - Firebase/CoreOnly (5.4.0):
+    - FirebaseCore (= 5.0.5)
+  - Firebase/Database (5.4.0):
     - Firebase/CoreOnly
-    - FirebaseDatabase (= 5.0.1)
-  - Firebase/Storage (5.3.0):
+    - FirebaseDatabase (= 5.0.2)
+  - Firebase/Storage (5.4.0):
     - Firebase/CoreOnly
     - FirebaseStorage (= 3.0.0)
-  - FirebaseAuth (5.0.1):
+  - FirebaseAuth (5.0.2):
     - FirebaseCore (~> 5.0)
     - GTMSessionFetcher/Core (~> 1.1)
-  - FirebaseCore (5.0.4):
+  - FirebaseCore (5.0.5):
     - "GoogleToolboxForMac/NSData+zlib (~> 2.1)"
-  - FirebaseDatabase (5.0.1):
+  - FirebaseDatabase (5.0.2):
     - FirebaseCore (~> 5.0)
     - leveldb-library (~> 1.18)
   - FirebaseStorage (3.0.0):
@@ -28,12 +38,16 @@ PODS:
   - leveldb-library (1.20)
 
 DEPENDENCIES:
+  - FBSDKLoginKit
   - Firebase/Auth
   - Firebase/Database
   - Firebase/Storage
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
+    - Bolts
+    - FBSDKCoreKit
+    - FBSDKLoginKit
     - Firebase
     - FirebaseAuth
     - FirebaseCore
@@ -44,15 +58,18 @@ SPEC REPOS:
     - leveldb-library
 
 SPEC CHECKSUMS:
-  Firebase: 68afeeb05461db02d7c9e3215cda28068670f4aa
-  FirebaseAuth: 463b8ce33bd5d05f706dcd4615499e3212b4132b
-  FirebaseCore: 62f1b792a49bb9e8b4073f24606d2c93ffc352f0
-  FirebaseDatabase: 482bad9c2abd422bb2321194fb8c937e67426a89
+  Bolts: ac6567323eac61e203f6a9763667d0f711be34c8
+  FBSDKCoreKit: 0ff57f093b85c8c9d5aba697d3edf68a8960ce78
+  FBSDKLoginKit: 8c78f57a145afb756e4755e69195ebe08a42466e
+  Firebase: d66f4f29c23f22d96808d9abc174d81d8eee968f
+  FirebaseAuth: 096e457cdd4274412a66c4a35874787e411f5a03
+  FirebaseCore: 42b3267233bd21a5abd54117ccc38ca3dd0f8e83
+  FirebaseDatabase: 27be5ac5bc75e0b17537b2bbfada8258addcc8cd
   FirebaseStorage: 7ca4bb7b58a25fa647b04f524033fc7cb7eb272b
   GoogleToolboxForMac: 91c824d21e85b31c2aae9bb011c5027c9b4e738f
   GTMSessionFetcher: 5fa5b80fd20e439ef5f545fb2cb3ca6c6714caa2
   leveldb-library: 08cba283675b7ed2d99629a4bc5fd052cd2bb6a5
 
-PODFILE CHECKSUM: d18f4c6844b04c8f2545a796fa151e9017c0cb36
+PODFILE CHECKSUM: 8459b315622e983aa1efc8d0bd64783fac6d63c7
 
 COCOAPODS: 1.5.3

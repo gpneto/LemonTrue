@@ -24,6 +24,7 @@
 import UIKit
 import Firebase
 import MapKit
+import FBSDKLoginKit
 
 class NavVC: UINavigationController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, UIScrollViewDelegate {
 
@@ -221,6 +222,8 @@ class NavVC: UINavigationController, UICollectionViewDelegate, UICollectionViewD
     @IBAction func logOutUser(_ sender: Any) {
         User.logOutUser { (status) in
             if status == true {
+                let loginManager = FBSDKLoginManager()
+                loginManager.logOut() // this is an instance function 
                 self.dismiss(animated: true, completion: nil)
             }
         }

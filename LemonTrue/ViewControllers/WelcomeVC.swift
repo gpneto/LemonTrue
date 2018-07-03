@@ -23,6 +23,8 @@
 
 import UIKit
 import Photos
+import FBSDKLoginKit
+import Firebase
 
 class WelcomeVC: UIViewController, UITextFieldDelegate, UINavigationControllerDelegate, UIImagePickerControllerDelegate {
 
@@ -191,6 +193,46 @@ class WelcomeVC: UIViewController, UITextFieldDelegate, UINavigationControllerDe
             }
         }
     }
+    
+    
+    
+    @IBAction func facebookLogin(_ sender: Any) {
+        let fbLoginManager = FBSDKLoginManager()
+        fbLoginManager.logIn(withReadPermissions: ["public_profile", "email"], from: self) { (result, error) in
+            if let error = error {
+                print("Failed to login: \(error.localizedDescription)")
+                return
+            }
+            
+            guard let accessToken = FBSDKAccessToken.current() else {
+                print("Failed to get access token")
+                return
+            }
+            
+            let credential = FacebookAuthProvider.credential(withAccessToken: accessToken.tokenString)
+            
+            self.showLoading(state: true)
+            User.loginUser(credential: credential) { [weak weakSelf = self](status) in
+                DispatchQueue.main.async {
+                    weakSelf?.showLoading(state: false)
+                    for item in self.inputFields {
+                        item.text = ""
+                    }
+                    if status == true {
+                        weakSelf?.pushTomainView()
+                    } else {
+                        for item in (weakSelf?.waringLabels)! {
+                            item.isHidden = false
+                        }
+                    }
+                    weakSelf = nil
+                }
+            }
+       
+            
+        }
+    }
+    
     
     @IBAction func selectPic(_ sender: Any) {
         let sheet = UIAlertController(title: nil, message: "Select the source", preferredStyle: .actionSheet)

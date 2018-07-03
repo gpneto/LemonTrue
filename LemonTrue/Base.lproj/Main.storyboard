@@ -147,14 +147,14 @@
                                 <action selector="selectPic:" destination="coH-Wz-vcZ" eventType="touchUpInside" id="9iY-p4-JRW"/>
                             </connections>
                         </button>
-                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="profile pic" translatesAutoresizingMaskIntoConstraints="NO" id="bfP-DX-8M2" customClass="RoundedImageView" customModule="QuickChat" customModuleProvider="target">
+                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="profile pic" translatesAutoresizingMaskIntoConstraints="NO" id="bfP-DX-8M2" customClass="RoundedImageView" customModule="LemonTrue" customModuleProvider="target">
                             <rect key="frame" x="130" y="12" width="70" height="70"/>
                             <constraints>
                                 <constraint firstAttribute="width" secondItem="bfP-DX-8M2" secondAttribute="height" multiplier="1:1" id="KBy-0a-GO6"/>
                                 <constraint firstAttribute="width" constant="70" id="Ucv-yC-xhB"/>
                             </constraints>
                         </imageView>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Cid-0w-4y1" customClass="RoundedButton" customModule="QuickChat" customModuleProvider="target">
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Cid-0w-4y1" customClass="RoundedButton" customModule="LemonTrue" customModuleProvider="target">
                             <rect key="frame" x="90" y="384" width="150" height="40"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="150" id="FVg-UF-SO4"/>
@@ -330,7 +330,7 @@
                     <rect key="frame" x="0.0" y="0.0" width="452" height="459"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <subviews>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qHX-dy-APk" customClass="RoundedButton" customModule="QuickChat" customModuleProvider="target">
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qHX-dy-APk" customClass="RoundedButton" customModule="LemonTrue" customModuleProvider="target">
                             <rect key="frame" x="166" y="389" width="120" height="40"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="40" id="8Ln-Yr-vtk"/>
@@ -341,7 +341,7 @@
                                 <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             </state>
                             <connections>
-                                <action selector="login:" destination="coH-Wz-vcZ" eventType="touchUpInside" id="myd-ij-0wn"/>
+                                <action selector="facebookLogin:" destination="coH-Wz-vcZ" eventType="touchUpInside" id="Cae-0b-vtt"/>
                             </connections>
                         </button>
                         <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Wrong input paramets, please try again" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="iJ2-JE-aWc">
@@ -498,7 +498,7 @@
                                 <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                             </collectionViewFlowLayout>
                             <cells>
-                                <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="Cell" id="moc-md-t15" customClass="ContactsCVCell" customModule="QuickChat" customModuleProvider="target">
+                                <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="Cell" id="moc-md-t15" customClass="ContactsCVCell" customModule="LemonTrue" customModuleProvider="target">
                                     <rect key="frame" x="0.0" y="17.5" width="120" height="123"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
@@ -511,7 +511,7 @@
                                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="profile pic" translatesAutoresizingMaskIntoConstraints="NO" id="TQ4-BL-2xE" customClass="RoundedImageView" customModule="QuickChat" customModuleProvider="target">
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="profile pic" translatesAutoresizingMaskIntoConstraints="NO" id="TQ4-BL-2xE" customClass="RoundedImageView" customModule="LemonTrue" customModuleProvider="target">
                                                 <rect key="frame" x="12" y="18" width="96" height="96"/>
                                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                 <constraints>
@@ -535,7 +535,7 @@
                                         <outlet property="profilePic" destination="TQ4-BL-2xE" id="j1L-UV-Uxg"/>
                                     </connections>
                                 </collectionViewCell>
-                                <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="Empty Cell" id="Fv8-Bu-tn0" customClass="ContactsCVCell" customModule="QuickChat" customModuleProvider="target">
+                                <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="Empty Cell" id="Fv8-Bu-tn0" customClass="ContactsCVCell" customModule="LemonTrue" customModuleProvider="target">
                                     <rect key="frame" x="130" y="0.0" width="164" height="158"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
@@ -564,7 +564,7 @@
                                 <outlet property="delegate" destination="q2X-MD-tSJ" id="J4n-Ar-4jg"/>
                             </connections>
                         </collectionView>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jui-NJ-Lsk" customClass="RoundedButton" customModule="QuickChat" customModuleProvider="target">
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jui-NJ-Lsk" customClass="RoundedButton" customModule="LemonTrue" customModuleProvider="target">
                             <rect key="frame" x="133" y="262" width="120" height="40"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="120" id="YUS-HA-MPD"/>
@@ -594,7 +594,7 @@
                     <rect key="frame" x="0.0" y="0.0" width="375" height="397"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <subviews>
-                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ezm-7B-znu" customClass="RoundedImageView" customModule="QuickChat" customModuleProvider="target">
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ezm-7B-znu" customClass="RoundedImageView" customModule="LemonTrue" customModuleProvider="target">
                             <rect key="frame" x="93" y="41" width="190" height="190"/>
                             <constraints>
                                 <constraint firstAttribute="width" secondItem="ezm-7B-znu" secondAttribute="height" multiplier="1:1" id="a6p-ci-evk"/>
@@ -618,7 +618,7 @@
                             <color key="textColor" red="0.43529411759999997" green="0.4431372549" blue="0.47450980390000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="95k-Kx-Cjy" customClass="RoundedButton" customModule="QuickChat" customModuleProvider="target">
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="95k-Kx-Cjy" customClass="RoundedButton" customModule="LemonTrue" customModuleProvider="target">
                             <rect key="frame" x="128" y="337" width="120" height="40"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="120" id="NcO-au-C9f"/>
@@ -747,7 +747,7 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="1743" y="190"/>
+            <point key="canvasLocation" x="1735" y="318"/>
         </scene>
         <!-- -->
         <scene sceneID="pYp-0m-bvf">
@@ -765,14 +765,14 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Cell" id="hHn-p7-7OC" customClass="ConversationsTBCell" customModule="QuickChat" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Cell" id="hHn-p7-7OC" customClass="ConversationsTBCell" customModule="LemonTrue" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="80"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="hHn-p7-7OC" id="ypO-ge-dE9">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="80"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="profile pic" translatesAutoresizingMaskIntoConstraints="NO" id="cuX-kH-KQ6" customClass="RoundedImageView" customModule="QuickChat" customModuleProvider="target">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="profile pic" translatesAutoresizingMaskIntoConstraints="NO" id="cuX-kH-KQ6" customClass="RoundedImageView" customModule="LemonTrue" customModuleProvider="target">
                                                     <rect key="frame" x="10" y="15" width="50" height="50"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="50" id="nwD-P1-E7U"/>
@@ -891,7 +891,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ntk-9C-A1B" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2780" y="189"/>
+            <point key="canvasLocation" x="2769" y="293"/>
         </scene>
         <!--Chat-->
         <scene sceneID="IZd-Jn-Gzq">
@@ -909,7 +909,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Sender" id="1c5-uP-sfy" customClass="SenderCell" customModule="QuickChat" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Sender" id="1c5-uP-sfy" customClass="SenderCell" customModule="LemonTrue" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="30"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="1c5-uP-sfy" id="c6n-nz-2Gb">
@@ -934,7 +934,7 @@
                                                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                                     <dataDetectorType key="dataDetectorTypes" phoneNumber="YES" link="YES"/>
                                                 </textView>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="UMj-ov-fNn" customClass="RoundedImageView" customModule="QuickChat" customModuleProvider="target">
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="UMj-ov-fNn" customClass="RoundedImageView" customModule="LemonTrue" customModuleProvider="target">
                                                     <rect key="frame" x="10" y="-12" width="36" height="36"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="36" id="ag1-vo-e3Y"/>
@@ -960,7 +960,7 @@
                                             <outlet property="profilePic" destination="UMj-ov-fNn" id="IME-HS-N3p"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Receiver" id="4w8-mM-qPF" customClass="ReceiverCell" customModule="QuickChat" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Receiver" id="4w8-mM-qPF" customClass="ReceiverCell" customModule="LemonTrue" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="58" width="375" height="30"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="4w8-mM-qPF" id="EoV-N7-Ph4">

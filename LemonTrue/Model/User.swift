@@ -24,6 +24,7 @@
 import Foundation
 import UIKit
 import Firebase
+import FBSDKLoginKit
 
 class User: NSObject {
     
@@ -31,7 +32,7 @@ class User: NSObject {
     let name: String
     let email: String
     let id: String
-    var profilePic: UIImage?
+    var profilePic: UIImage
     
     //MARK: Methods
     class func registerUser(withName: String, email: String, password: String, profilePic: UIImage, completion: @escaping (Bool) -> Swift.Void) {
@@ -40,34 +41,28 @@ class User: NSObject {
                // user?.sendEmailVerification(completion: nil)
                 let storageRef = Storage.storage().reference().child("usersProfilePics").child(user!.user.uid)
                 let imageData = UIImageJPEGRepresentation(profilePic, 0.1)
-                
-                let values = ["name": withName, "email": email, "profilePicLink": ""]
-                Database.database().reference().child("users").child((user?.user.uid)!).child("credentials").updateChildValues(values, withCompletionBlock: { (errr, _) in
-                    if errr == nil {
-                        let userInfo = ["email" : email, "password" : password]
-                        UserDefaults.standard.set(userInfo, forKey: "userInformation")
-                        completion(true)
-                    }
-                })
-                
                 storageRef.putData(imageData!, metadata: nil, completion: { (metadata, err) in
                     if err == nil {
                         
-                        metadata?.storageReference?.downloadURL(completion: { (url, error) in
-                            if let error = error {
-                                print(error.localizedDescription)
-                                return
-                            }
+                        // Fetch the download URL
+                        storageRef.downloadURL { url, error in
                             
-                            let values = ["name": withName, "email": email, "profilePicLink": url?.absoluteString]
-                            Database.database().reference().child("users").child((user?.user.uid)!).child("credentials").updateChildValues(values, withCompletionBlock: { (errr, _) in
-                                if errr == nil {
-                                    let userInfo = ["email" : email, "password" : password]
-                                    UserDefaults.standard.set(userInfo, forKey: "userInformation")
-                                    completion(true)
-                                }
-                            })
-                        })
+                            
+                            if let error = error {
+                                // Handle any errors
+                            } else {
+                                
+                                let values = ["name": withName, "email": email, "profilePicLink": url?.absoluteString]
+                                Database.database().reference().child("users").child((user?.user.uid)!).child("credentials").updateChildValues(values, withCompletionBlock: { (errr, _) in
+                                    if errr == nil {
+                                        let userInfo = ["email" : email, "password" : password]
+                                        UserDefaults.standard.set(userInfo, forKey: "userInformation")
+                                        completion(true)
+                                    }
+                                })
+                                // Get the download URL for 'images/stars.jpg'
+                            }
+                        }
                         
                    
                     }
@@ -79,7 +74,8 @@ class User: NSObject {
         })
     }
     
-
+    
+    
     
    class func loginUser(withEmail: String, password: String, completion: @escaping (Bool) -> Swift.Void) {
         Auth.auth().signIn(withEmail: withEmail, password: password, completion: { (user, error) in
@@ -91,6 +87,32 @@ class User: NSObject {
                 completion(false)
             }
         })
+    }
+    
+    
+    class func loginUser(credential: AuthCredential, completion: @escaping (Bool) -> Swift.Void) {
+        
+        
+        Auth.auth().signIn(with: credential, completion: { (user, error) in
+            if let error = error {
+                completion(false)
+                print("Login error: \(error.localizedDescription)")
+                return
+            }
+            
+            
+            let values = ["name": user?.displayName, "email": user?.email, "profilePicLink": user?.photoURL?.absoluteString]
+            Database.database().reference().child("users").child((user?.uid)!).child("credentials").updateChildValues(values, withCompletionBlock: { (errr, _) in
+                if errr == nil {
+                  //  completion(true)
+                }
+            })
+            
+            completion(true)
+            
+        })
+        
+
     }
     
     class func logOutUser(completion: @escaping (Bool) -> Swift.Void) {
@@ -109,7 +131,6 @@ class User: NSObject {
                 let name = data["name"]!
                 let email = data["email"]!
                 let link = URL.init(string: data["profilePicLink"]!)
-                if(link != nil){
                 URLSession.shared.dataTask(with: link!, completionHandler: { (data, response, error) in
                     if error == nil {
                         let profilePic = UIImage.init(data: data!)
@@ -117,10 +138,6 @@ class User: NSObject {
                         completion(user)
                     }
                 }).resume()
-                }else{
-                    let user = User.init(name: name, email: email, id: forUserID, profilePic: nil)
-                    completion(user)
-                }
             }
         })
     }
@@ -154,7 +171,7 @@ class User: NSObject {
 
     
     //MARK: Inits
-    init(name: String, email: String, id: String, profilePic: UIImage?) {
+    init(name: String, email: String, id: String, profilePic: UIImage) {
         self.name = name
         self.email = email
         self.id = id

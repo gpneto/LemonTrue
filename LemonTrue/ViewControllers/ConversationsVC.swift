@@ -60,9 +60,7 @@ class ConversationsVC: UIViewController, UITableViewDelegate, UITableViewDataSou
                 let contentSize = CGSize.init(width: 30, height: 30)
                 UIGraphicsBeginImageContextWithOptions(contentSize, false, 0.0)
                 let _  = UIBezierPath.init(roundedRect: CGRect.init(origin: CGPoint.zero, size: contentSize), cornerRadius: 14).addClip()
-                if (image != nil){
-                    image?.draw(in: CGRect(origin: CGPoint.zero, size: contentSize))
-                }
+                image.draw(in: CGRect(origin: CGPoint.zero, size: contentSize))
                 let path = UIBezierPath.init(roundedRect: CGRect.init(origin: CGPoint.zero, size: contentSize), cornerRadius: 14)
                 path.lineWidth = 2
                 UIColor.white.setStroke()
