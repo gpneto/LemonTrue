@@ -49,8 +49,9 @@ class ChatVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UITe
     let barHeight: CGFloat = 50
     var currentUser: User?
     var canSendLocation = true
+    var recebida = true
     
-
+    
     //MARK: Methods
     func customization() {
         self.imagePicker.delegate = self
@@ -68,16 +69,32 @@ class ChatVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UITe
     
     //Downloads messages
     func fetchData() {
-        Message.downloadAllMessages(forUserID: self.currentUser!.id, completion: {[weak weakSelf = self] (message) in
-            weakSelf?.items.append(message)
-            weakSelf?.items.sort{ $0.timestamp < $1.timestamp }
-            DispatchQueue.main.async {
-                if let state = weakSelf?.items.isEmpty, state == false {
-                    weakSelf?.tableView.reloadData()
-                    weakSelf?.tableView.scrollToRow(at: IndexPath.init(row: self.items.count - 1, section: 0), at: .bottom, animated: false)
+        if(recebida){
+            Message.downloadAllMessagesRec(forUserID: self.currentUser!.id, completion: {[weak weakSelf = self] (message) in
+                weakSelf?.items.append(message)
+                weakSelf?.items.sort{ $0.timestamp < $1.timestamp }
+                DispatchQueue.main.async {
+                    if let state = weakSelf?.items.isEmpty, state == false {
+                        weakSelf?.tableView.reloadData()
+                        weakSelf?.tableView.scrollToRow(at: IndexPath.init(row: self.items.count - 1, section: 0), at: .bottom, animated: false)
+                    }
                 }
-            }
-        })
+            })
+        
+        
+        }else{
+            
+            Message.downloadAllMessages(forUserID: self.currentUser!.id, completion: {[weak weakSelf = self] (message) in
+                weakSelf?.items.append(message)
+                weakSelf?.items.sort{ $0.timestamp < $1.timestamp }
+                DispatchQueue.main.async {
+                    if let state = weakSelf?.items.isEmpty, state == false {
+                        weakSelf?.tableView.reloadData()
+                        weakSelf?.tableView.scrollToRow(at: IndexPath.init(row: self.items.count - 1, section: 0), at: .bottom, animated: false)
+                    }
+                }
+            })
+        }
         Message.markMessagesRead(forUserID: self.currentUser!.id)
     }
     
@@ -122,7 +139,7 @@ class ChatVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UITe
     }
     
     @IBAction func showMessage(_ sender: Any) {
-       self.animateExtraButtons(toHide: true)
+        self.animateExtraButtons(toHide: true)
     }
     
     @IBAction func selectGallery(_ sender: Any) {
@@ -179,7 +196,7 @@ class ChatVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UITe
             }
         }
     }
-
+    
     //MARK: Delegates
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.items.count
@@ -296,7 +313,7 @@ class ChatVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UITe
             }
         }
     }
-
+    
     //MARK: ViewController lifecycle
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)

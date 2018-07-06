@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8189E0BD20EF987E002F5CF1 /* ConversationsRecVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8189E0BC20EF987E002F5CF1 /* ConversationsRecVC.swift */; };
 		819CC97620EBBADE008E9411 /* newMessage.wav in Resources */ = {isa = PBXBuildFile; fileRef = 819CC97520EBBADE008E9411 /* newMessage.wav */; };
 		81C5CF2720E3CDFD00912118 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81C5CF2620E3CDFD00912118 /* AppDelegate.swift */; };
 		81C5CF2920E3CDFD00912118 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81C5CF2820E3CDFD00912118 /* ViewController.swift */; };
@@ -31,6 +32,7 @@
 /* Begin PBXFileReference section */
 		3836D6E553EBF99CB1C543DC /* Pods_LemonTrue.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LemonTrue.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5F83F79CB34E659406121A88 /* Pods-LemonTrue.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LemonTrue.debug.xcconfig"; path = "Pods/Target Support Files/Pods-LemonTrue/Pods-LemonTrue.debug.xcconfig"; sourceTree = "<group>"; };
+		8189E0BC20EF987E002F5CF1 /* ConversationsRecVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConversationsRecVC.swift; sourceTree = "<group>"; };
 		819CC97520EBBADE008E9411 /* newMessage.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = newMessage.wav; sourceTree = "<group>"; };
 		81C5CF2320E3CDFD00912118 /* LemonTrue.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LemonTrue.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		81C5CF2620E3CDFD00912118 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -130,6 +132,7 @@
 				81ED5A4720E5256200FD5821 /* VCCells.swift */,
 				81ED5A4820E5256200FD5821 /* WelcomeVC.swift */,
 				81ED5A5820E5265B00FD5821 /* Helper Files.swift */,
+				8189E0BC20EF987E002F5CF1 /* ConversationsRecVC.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -224,6 +227,8 @@
 				"${BUILT_PRODUCTS_DIR}/Bolts/Bolts.framework",
 				"${BUILT_PRODUCTS_DIR}/FBSDKCoreKit/FBSDKCoreKit.framework",
 				"${BUILT_PRODUCTS_DIR}/FBSDKLoginKit/FBSDKLoginKit.framework",
+				"${BUILT_PRODUCTS_DIR}/FacebookCore/FacebookCore.framework",
+				"${BUILT_PRODUCTS_DIR}/FacebookLogin/FacebookLogin.framework",
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
 				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
@@ -233,6 +238,8 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Bolts.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKCoreKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKLoginKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FacebookCore.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FacebookLogin.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
@@ -273,6 +280,7 @@
 				81ED5A4C20E5256400FD5821 /* LandingVC.swift in Sources */,
 				81ED5A4D20E5256400FD5821 /* VCCells.swift in Sources */,
 				81C5CF2F20E3CDFD00912118 /* LemonTrue.xcdatamodeld in Sources */,
+				8189E0BD20EF987E002F5CF1 /* ConversationsRecVC.swift in Sources */,
 				81ED5A5B20E5269000FD5821 /* Conversation.swift in Sources */,
 				81ED5A4F20E5256400FD5821 /* NavVC.swift in Sources */,
 				81C5CF2720E3CDFD00912118 /* AppDelegate.swift in Sources */,

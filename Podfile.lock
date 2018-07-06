@@ -5,6 +5,14 @@ PODS:
   - Bolts/AppLinks (1.9.0):
     - Bolts/Tasks
   - Bolts/Tasks (1.9.0)
+  - FacebookCore (0.3.1):
+    - Bolts (~> 1.8)
+    - FBSDKCoreKit (~> 4.33)
+  - FacebookLogin (0.3.1):
+    - Bolts (~> 1.8)
+    - FacebookCore (~> 0.3.1)
+    - FBSDKCoreKit (~> 4.33)
+    - FBSDKLoginKit (~> 4.33)
   - FBSDKCoreKit (4.34.0):
     - Bolts (~> 1.7)
   - FBSDKLoginKit (4.34.0):
@@ -38,6 +46,7 @@ PODS:
   - leveldb-library (1.20)
 
 DEPENDENCIES:
+  - FacebookLogin
   - FBSDKLoginKit
   - Firebase/Auth
   - Firebase/Database
@@ -46,6 +55,8 @@ DEPENDENCIES:
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - Bolts
+    - FacebookCore
+    - FacebookLogin
     - FBSDKCoreKit
     - FBSDKLoginKit
     - Firebase
@@ -59,6 +70,8 @@ SPEC REPOS:
 
 SPEC CHECKSUMS:
   Bolts: ac6567323eac61e203f6a9763667d0f711be34c8
+  FacebookCore: 33078ef1d7d76b73f7e8c990dca7d3ea6db8d22f
+  FacebookLogin: 6f15bf4fefd7a8865abbfa8fcd7f3dfd87aa275f
   FBSDKCoreKit: 0ff57f093b85c8c9d5aba697d3edf68a8960ce78
   FBSDKLoginKit: 8c78f57a145afb756e4755e69195ebe08a42466e
   Firebase: d66f4f29c23f22d96808d9abc174d81d8eee968f
@@ -70,6 +83,6 @@ SPEC CHECKSUMS:
   GTMSessionFetcher: 5fa5b80fd20e439ef5f545fb2cb3ca6c6714caa2
   leveldb-library: 08cba283675b7ed2d99629a4bc5fd052cd2bb6a5
 
-PODFILE CHECKSUM: 8459b315622e983aa1efc8d0bd64783fac6d63c7
+PODFILE CHECKSUM: fb4bd1bdcc366cfde748b29fad1b25365a2e62cd
 
 COCOAPODS: 1.5.3

@@ -23,8 +23,11 @@
 
 import UIKit
 import Photos
-import FBSDKLoginKit
+
 import Firebase
+import FacebookLogin
+import FBSDKLoginKit
+
 
 class WelcomeVC: UIViewController, UITextFieldDelegate, UINavigationControllerDelegate, UIImagePickerControllerDelegate {
 
@@ -47,6 +50,9 @@ class WelcomeVC: UIViewController, UITextFieldDelegate, UINavigationControllerDe
     var registerTopConstraint: NSLayoutConstraint!
     let imagePicker = UIImagePickerController()
     var isLoginViewVisible = true
+    
+    @IBOutlet weak var btFBLogin: UIButton!
+    var dict : [String : AnyObject]!
     override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
         get {
             return UIInterfaceOrientationMask.portrait
@@ -55,29 +61,9 @@ class WelcomeVC: UIViewController, UITextFieldDelegate, UINavigationControllerDe
     
     //MARK: Methods
     func customization()  {
-        self.darkView.alpha = 0
-        self.imagePicker.delegate = self
-        self.profilePicView.layer.borderColor = GlobalVariables.blue.cgColor
-        self.profilePicView.layer.borderWidth = 2
-        //LoginView customization
-        self.view.insertSubview(self.loginView, belowSubview: self.cloudsView)
-        self.loginView.translatesAutoresizingMaskIntoConstraints = false
-        self.loginView.centerXAnchor.constraint(equalTo: self.view.centerXAnchor).isActive = true
-        self.loginViewTopConstraint = NSLayoutConstraint.init(item: self.loginView, attribute: .top, relatedBy: .equal, toItem: self.view, attribute: .top, multiplier: 1, constant: 60)
-        self.loginViewTopConstraint.isActive = true
-        self.loginView.heightAnchor.constraint(equalTo: self.view.heightAnchor, multiplier: 0.45).isActive = true
-        self.loginView.widthAnchor.constraint(equalTo: self.view.widthAnchor, multiplier: 0.8).isActive = true
-        self.loginView.layer.cornerRadius = 8
-        //RegisterView Customization
-        self.view.insertSubview(self.registerView, belowSubview: self.cloudsView)
-        self.registerView.translatesAutoresizingMaskIntoConstraints = false
-        self.registerView.centerXAnchor.constraint(equalTo: self.view.centerXAnchor).isActive = true
-        self.registerTopConstraint = NSLayoutConstraint.init(item: self.registerView, attribute: .top, relatedBy: .equal, toItem: self.view, attribute: .top, multiplier: 1, constant: 1000)
-        self.registerTopConstraint.isActive = true
-        self.registerView.heightAnchor.constraint(equalTo: self.view.heightAnchor, multiplier: 0.6).isActive = true
-        self.registerView.widthAnchor.constraint(equalTo: self.view.widthAnchor, multiplier: 0.8).isActive = true
-        self.registerView.layer.cornerRadius = 8
     }
+    
+ 
    
     func cloundsAnimation() {
         let distance = self.view.bounds.width - self.cloudsView.bounds.width
@@ -94,12 +80,14 @@ class WelcomeVC: UIViewController, UITextFieldDelegate, UINavigationControllerDe
             UIView.animate(withDuration: 0.3, animations: { 
                 self.darkView.alpha = 0.5
             })
+            self.btFBLogin.isHidden = true
         } else {
             UIView.animate(withDuration: 0.3, animations: { 
                 self.darkView.alpha = 0
             }, completion: { _ in
                 self.spinner.stopAnimating()
                 self.darkView.isHidden = true
+                self.btFBLogin.isHidden = false
             })
         }
     }
@@ -193,19 +181,21 @@ class WelcomeVC: UIViewController, UITextFieldDelegate, UINavigationControllerDe
             }
         }
     }
-    
-    
+
     
     @IBAction func facebookLogin(_ sender: Any) {
         let fbLoginManager = FBSDKLoginManager()
+        self.showLoading(state: true)
         fbLoginManager.logIn(withReadPermissions: ["public_profile", "email"], from: self) { (result, error) in
             if let error = error {
                 print("Failed to login: \(error.localizedDescription)")
+                 self.showLoading(state: false)
                 return
             }
             
             guard let accessToken = FBSDKAccessToken.current() else {
                 print("Failed to get access token")
+                 self.showLoading(state: false)
                 return
             }
             
@@ -215,9 +205,6 @@ class WelcomeVC: UIViewController, UITextFieldDelegate, UINavigationControllerDe
             User.loginUser(credential: credential) { [weak weakSelf = self](status) in
                 DispatchQueue.main.async {
                     weakSelf?.showLoading(state: false)
-                    for item in self.inputFields {
-                        item.text = ""
-                    }
                     if status == true {
                         weakSelf?.pushTomainView()
                     } else {
@@ -274,7 +261,11 @@ class WelcomeVC: UIViewController, UITextFieldDelegate, UINavigationControllerDe
     override func viewDidLoad() {
         super.viewDidLoad()
         self.customization()
+    
     }
+
+    
+   
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
@@ -288,3 +279,4 @@ class WelcomeVC: UIViewController, UITextFieldDelegate, UINavigationControllerDe
         self.view.layoutIfNeeded()
     }
 }
+

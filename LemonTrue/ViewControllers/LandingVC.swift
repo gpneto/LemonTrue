@@ -50,17 +50,37 @@ class LandingVC: UIViewController {
     //MARK: Check if user is signed in or not
     override func viewDidAppear(_ animated: Bool) {
         print("entrou")
+       
         super.viewDidAppear(animated)
         
         if let user = Auth.auth().currentUser {
             self.pushTo(viewController: .conversations)
+            print("irá ler usuarios")
+            returnUserData()
         } else {
             self.pushTo(viewController: .welcome)
         }
     }
 
+    func returnUserData()
+    {
+        let params = ["fields": "id, first_name, last_name, middle_name, name, email, picture"]
+        FBSDKGraphRequest(graphPath: "me/taggable_friends", parameters: params).start { (connection, result , error) -> Void in
+            
+            print("TESTE")
+            
+            if error != nil {
+                print(error!)
+            }
+            else {
+                print(result!)
+                //Do further work with response
+            }
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-         print("entrou")
+
     }
 }

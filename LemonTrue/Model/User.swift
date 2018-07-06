@@ -52,7 +52,7 @@ class User: NSObject {
                                 // Handle any errors
                             } else {
                                 
-                                let values = ["name": withName, "email": email, "profilePicLink": url?.absoluteString]
+                                let values = ["name": withName, "email": email, "profilePicLink": (url?.absoluteString)! + "?height=512"]
                                 Database.database().reference().child("users").child((user?.user.uid)!).child("credentials").updateChildValues(values, withCompletionBlock: { (errr, _) in
                                     if errr == nil {
                                         let userInfo = ["email" : email, "password" : password]
@@ -100,8 +100,11 @@ class User: NSObject {
                 return
             }
             
-            
-            let values = ["name": user?.displayName, "email": user?.email, "profilePicLink": user?.photoURL?.absoluteString]
+            var email = user?.email
+            if(email == nil){
+                email = "sememail@sememail.com"
+            }
+            let values = ["name": user?.displayName, "email": email, "profilePicLink": user?.photoURL?.absoluteString]
             Database.database().reference().child("users").child((user?.uid)!).child("credentials").updateChildValues(values, withCompletionBlock: { (errr, _) in
                 if errr == nil {
                   //  completion(true)
@@ -129,6 +132,7 @@ class User: NSObject {
         Database.database().reference().child("users").child(forUserID).child("credentials").observeSingleEvent(of: .value, with: { (snapshot) in
             if let data = snapshot.value as? [String: String] {
                 let name = data["name"]!
+               
                 let email = data["email"]!
                 let link = URL.init(string: data["profilePicLink"]!)
                 URLSession.shared.dataTask(with: link!, completionHandler: { (data, response, error) in
@@ -138,6 +142,7 @@ class User: NSObject {
                         completion(user)
                     }
                 }).resume()
+                
             }
         })
     }
@@ -149,6 +154,7 @@ class User: NSObject {
             let credentials = data["credentials"] as! [String: String]
             if id != exceptID {
                 let name = credentials["name"]!
+               
                 let email = credentials["email"]!
                 let link = URL.init(string: credentials["profilePicLink"]!)
                 URLSession.shared.dataTask(with: link!, completionHandler: { (data, response, error) in
@@ -158,6 +164,7 @@ class User: NSObject {
                         completion(user)
                     }
                 }).resume()
+                
             }
         })
     }

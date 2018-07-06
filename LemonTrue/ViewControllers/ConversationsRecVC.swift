@@ -25,14 +25,14 @@ import UIKit
 import Firebase
 import AudioToolbox
 
-class ConversationsVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class ConversationsRecVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     //MARK: Properties
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var alertBottomConstraint: NSLayoutConstraint!
     lazy var leftButton: UIBarButtonItem = {
         let image = UIImage.init(named: "default profile")?.withRenderingMode(.alwaysOriginal)
-        let button  = UIBarButtonItem.init(image: image, style: .plain, target: self, action: #selector(ConversationsVC.showProfile))
+        let button  = UIBarButtonItem.init(image: image, style: .plain, target: self, action: #selector(ConversationsRecVC.showProfile))
         return button
     }()
     var items = [Conversation]()
@@ -49,7 +49,7 @@ class ConversationsVC: UIViewController, UITableViewDelegate, UITableViewDataSou
         NotificationCenter.default.addObserver(self, selector: #selector(self.showEmailAlert), name: Notification.Name.UIApplicationDidBecomeActive, object: nil)
         //right bar button
         let icon = UIImage.init(named: "compose")?.withRenderingMode(.alwaysOriginal)
-        let rightButton = UIBarButtonItem.init(image: icon!, style: .plain, target: self, action: #selector(ConversationsVC.showContacts))
+        let rightButton = UIBarButtonItem.init(image: icon!, style: .plain, target: self, action: #selector(ConversationsRecVC.showContacts))
         self.tabBarController?.navigationItem.rightBarButtonItem = rightButton
         //left bar button image fetching
         self.tabBarController?.navigationItem.leftBarButtonItem = self.leftButton
@@ -76,8 +76,9 @@ class ConversationsVC: UIViewController, UITableViewDelegate, UITableViewDataSou
     }
     
     //Downloads conversations
+    //As Mensagens Recebidas são anonimas
     func fetchData() {
-        Conversation.showConversations { (conversations) in
+        Conversation.showConversationsRec { (conversations) in
             self.items = conversations
             self.items.sort{ $0.lastMessage.timestamp > $1.lastMessage.timestamp }
             DispatchQueue.main.async {
@@ -132,7 +133,7 @@ class ConversationsVC: UIViewController, UITableViewDelegate, UITableViewDataSou
         AudioServicesCreateSystemSoundID(soundURL!, &soundID)
         AudioServicesPlaySystemSound(soundID)
     }
-
+    
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "segue" {
@@ -140,7 +141,7 @@ class ConversationsVC: UIViewController, UITableViewDelegate, UITableViewDataSou
             vc.currentUser = self.selectedUser
         }
     }
-
+    
     //MARK: Delegates
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
@@ -170,8 +171,10 @@ class ConversationsVC: UIViewController, UITableViewDelegate, UITableViewDataSou
         default:
             let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! ConversationsTBCell
             cell.clearCellData()
-            cell.profilePic.image = self.items[indexPath.row].user.profilePic
-            cell.nameLabel.text = self.items[indexPath.row].user.name
+           // cell.profilePic.image = self.items[indexPath.row].user.profilePic
+            cell.profilePic.image = #imageLiteral(resourceName: "profile pic")
+          //  cell.nameLabel.text = self.items[indexPath.row].user.name
+            cell.nameLabel.text = "Anonimo"
             switch self.items[indexPath.row].lastMessage.type {
             case .text:
                 let message = self.items[indexPath.row].lastMessage.content as! String
@@ -203,7 +206,7 @@ class ConversationsVC: UIViewController, UITableViewDelegate, UITableViewDataSou
             self.performSegue(withIdentifier: "segue", sender: self)
         }
     }
-       
+    
     //MARK: ViewController lifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()

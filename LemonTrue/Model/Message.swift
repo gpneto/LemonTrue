@@ -73,6 +73,41 @@ class Message {
         }
     }
     
+    class func downloadAllMessagesRec(forUserID: String, completion: @escaping (Message) -> Swift.Void) {
+        if let currentUserID = Auth.auth().currentUser?.uid {
+            Database.database().reference().child("users").child(currentUserID).child("conversationsRec").child(forUserID).observe(.value, with: { (snapshot) in
+                if snapshot.exists() {
+                    let data = snapshot.value as! [String: String]
+                    let location = data["location"]!
+                    Database.database().reference().child("conversationsRec").child(location).observe(.childAdded, with: { (snap) in
+                        if snap.exists() {
+                            let receivedMessage = snap.value as! [String: Any]
+                            let messageType = receivedMessage["type"] as! String
+                            var type = MessageType.text
+                            switch messageType {
+                            case "photo":
+                                type = .photo
+                            case "location":
+                                type = .location
+                            default: break
+                            }
+                            let content = receivedMessage["content"] as! String
+                            let fromID = receivedMessage["fromID"] as! String
+                            let timestamp = receivedMessage["timestamp"] as! Int
+                            if fromID == currentUserID {
+                                let message = Message.init(type: type, content: content, owner: .receiver, timestamp: timestamp, isRead: true)
+                                completion(message)
+                            } else {
+                                let message = Message.init(type: type, content: content, owner: .sender, timestamp: timestamp, isRead: true)
+                                completion(message)
+                            }
+                        }
+                    })
+                }
+            })
+        }
+    }
+    
     func downloadImage(indexpathRow: Int, completion: @escaping (Bool, Int) -> Swift.Void)  {
         if self.type == .photo {
             let imageLink = self.content as! String
@@ -108,9 +143,9 @@ class Message {
         }
     }
    
-    func downloadLastMessage(forLocation: String, completion: @escaping () -> Swift.Void) {
+    func downloadLastMessage(type : String , forLocation: String, completion: @escaping () -> Swift.Void) {
         if let currentUserID = Auth.auth().currentUser?.uid {
-            Database.database().reference().child("conversations").child(forLocation).observe(.value, with: { (snapshot) in
+            Database.database().reference().child(type).child(forLocation).observe(.value, with: { (snapshot) in
                 if snapshot.exists() {
                     for snap in snapshot.children {
                         let receivedMessage = (snap as! DataSnapshot).value as! [String: Any]
@@ -204,9 +239,19 @@ class Message {
                     })
                 } else {
                     Database.database().reference().child("conversations").childByAutoId().childByAutoId().setValue(withValues, withCompletionBlock: { (error, reference) in
-                        let data = ["location": reference.parent!.key]
+                        
+                    let data = ["location": reference.parent!.key]
                         Database.database().reference().child("users").child(currentUserID).child("conversations").child(toID).updateChildValues(data)
-                        Database.database().reference().child("users").child(toID).child("conversations").child(currentUserID).updateChildValues(data)
+                        completion(true)
+                    })
+                    
+                    
+                    Database.database().reference().child("conversationsRec").childByAutoId().childByAutoId().setValue(withValues, withCompletionBlock: { (error, reference) in
+                        
+                        let data = ["location": reference.parent!.key]
+                        Database.database().reference().child("conversationsRec").childByAutoId().childByAutoId().setValue(withValues)
+                        
+                        Database.database().reference().child("users").child(toID).child("conversationsRec").child(currentUserID).updateChildValues(data)
                         completion(true)
                     })
                 }
