@@ -45,7 +45,7 @@ class ConversationsRecVC: UIViewController, UITableViewDelegate, UITableViewData
         let navigationTitleFont = UIFont(name: "AvenirNext-Regular", size: 18)!
         self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedStringKey.font: navigationTitleFont, NSAttributedStringKey.foregroundColor: UIColor.white]
         // notification setup
-        NotificationCenter.default.addObserver(self, selector: #selector(self.pushToUserMesssages(notification:)), name: NSNotification.Name(rawValue: "showUserMessages"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(self.pushToUserMesssages(notification:)), name: NSNotification.Name(rawValue: "showUserMessagesRec"), object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(self.showEmailAlert), name: Notification.Name.UIApplicationDidBecomeActive, object: nil)
         //right bar button
         let icon = UIImage.init(named: "compose")?.withRenderingMode(.alwaysOriginal)
@@ -121,7 +121,7 @@ class ConversationsRecVC: UIViewController, UITableViewDelegate, UITableViewData
     @objc func pushToUserMesssages(notification: NSNotification) {
         if let user = notification.userInfo?["user"] as? User {
             self.selectedUser = user
-            self.performSegue(withIdentifier: "segue", sender: self)
+            self.performSegue(withIdentifier: "segueSend", sender: self)
         }
     }
     
@@ -136,9 +136,10 @@ class ConversationsRecVC: UIViewController, UITableViewDelegate, UITableViewData
     
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "segue" {
+        if segue.identifier == "segueRec" {
             let vc = segue.destination as! ChatVC
             vc.currentUser = self.selectedUser
+            vc.recebida = true
         }
     }
     
@@ -203,13 +204,14 @@ class ConversationsRecVC: UIViewController, UITableViewDelegate, UITableViewData
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if self.items.count > 0 {
             self.selectedUser = self.items[indexPath.row].user
-            self.performSegue(withIdentifier: "segue", sender: self)
+            self.performSegue(withIdentifier: "segueRec", sender: self)
         }
     }
     
     //MARK: ViewController lifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
+      
         self.customization()
         self.fetchData()
     }
@@ -217,6 +219,10 @@ class ConversationsRecVC: UIViewController, UITableViewDelegate, UITableViewData
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         self.showEmailAlert()
+        
+        //Fiz esta gambiarra para já iniciar a aba 1
+        self.tabBarController?.selectedIndex = 1
+        self.tabBarController?.selectedIndex = 0
     }
     
     override func viewWillAppear(_ animated: Bool) {

@@ -44,7 +44,7 @@ class Conversation {
                         let emptyMessage = Message.init(type: .text, content: "loading", owner: .sender, timestamp: 0, isRead: true)
                         let conversation = Conversation.init(user: user, lastMessage: emptyMessage)
                         conversations.append(conversation)
-                        conversation.lastMessage.downloadLastMessage(type: "conversationsRec" , forLocation: location, completion: {
+                        conversation.lastMessage.downloadLastMessage(type: "conversations" , forLocation: location, completion: {
                             completion(conversations)
                         })
                     })
@@ -58,7 +58,7 @@ class Conversation {
     class func showConversations(completion: @escaping ([Conversation]) -> Swift.Void) {
         if let currentUserID = Auth.auth().currentUser?.uid {
             var conversations = [Conversation]()
-            Database.database().reference().child("users").child(currentUserID).child("conversations").observe(.childAdded, with: { (snapshot) in
+            Database.database().reference().child("users").child(currentUserID).child("conversationsSend").observe(.childAdded, with: { (snapshot) in
                 if snapshot.exists() {
                     let fromID = snapshot.key
                     let values = snapshot.value as! [String: String]

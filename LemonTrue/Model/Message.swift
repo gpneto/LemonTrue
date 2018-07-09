@@ -40,7 +40,7 @@ class Message {
     //MARK: Methods
     class func downloadAllMessages(forUserID: String, completion: @escaping (Message) -> Swift.Void) {
         if let currentUserID = Auth.auth().currentUser?.uid {
-            Database.database().reference().child("users").child(currentUserID).child("conversations").child(forUserID).observe(.value, with: { (snapshot) in
+            Database.database().reference().child("users").child(currentUserID).child("conversationsSend").child(forUserID).observe(.value, with: { (snapshot) in
                 if snapshot.exists() {
                     let data = snapshot.value as! [String: String]
                     let location = data["location"]!
@@ -79,7 +79,7 @@ class Message {
                 if snapshot.exists() {
                     let data = snapshot.value as! [String: String]
                     let location = data["location"]!
-                    Database.database().reference().child("conversationsRec").child(location).observe(.childAdded, with: { (snap) in
+                    Database.database().reference().child("conversations").child(location).observe(.childAdded, with: { (snap) in
                         if snap.exists() {
                             let receivedMessage = snap.value as! [String: Any]
                             let messageType = receivedMessage["type"] as! String
@@ -177,12 +177,12 @@ class Message {
         }
     }
 
-    class func send(message: Message, toID: String, completion: @escaping (Bool) -> Swift.Void)  {
+    class func send(message: Message, toID: String, recebida: Bool, completion: @escaping (Bool) -> Swift.Void)  {
         if let currentUserID = Auth.auth().currentUser?.uid {
             switch message.type {
             case .location:
                 let values = ["type": "location", "content": message.content, "fromID": currentUserID, "toID": toID, "timestamp": message.timestamp, "isRead": false]
-                Message.uploadMessage(withValues: values, toID: toID, completion: { (status) in
+                Message.uploadMessage(withValues: values, toID: toID, recebida: recebida, completion: { (status) in
                     completion(status)
                 })
             case .photo:
@@ -202,7 +202,7 @@ class Message {
                             } else {
                                 
                                 let values = ["type": "photo", "content": url?.absoluteString, "fromID": currentUserID, "toID": toID, "timestamp": message.timestamp, "isRead": false] as [String : Any]
-                                Message.uploadMessage(withValues: values, toID: toID, completion: { (status) in
+                                Message.uploadMessage(withValues: values, toID: toID, recebida: recebida, completion: { (status) in
                                     completion(status)
                                 })
                                 // Get the download URL for 'images/stars.jpg'
@@ -217,45 +217,70 @@ class Message {
                 })
             case .text:
                 let values = ["type": "text", "content": message.content, "fromID": currentUserID, "toID": toID, "timestamp": message.timestamp, "isRead": false]
-                Message.uploadMessage(withValues: values, toID: toID, completion: { (status) in
+                Message.uploadMessage(withValues: values, toID: toID, recebida: recebida, completion: { (status) in
                     completion(status)
                 })
             }
         }
     }
     
-    class func uploadMessage(withValues: [String: Any], toID: String, completion: @escaping (Bool) -> Swift.Void) {
+    class func uploadMessage(withValues: [String: Any], toID: String, recebida: Bool, completion: @escaping (Bool) -> Swift.Void) {
         if let currentUserID = Auth.auth().currentUser?.uid {
-            Database.database().reference().child("users").child(currentUserID).child("conversations").child(toID).observeSingleEvent(of: .value, with: { (snapshot) in
-                if snapshot.exists() {
-                    let data = snapshot.value as! [String: String]
-                    let location = data["location"]!
-                    Database.database().reference().child("conversations").child(location).childByAutoId().setValue(withValues, withCompletionBlock: { (error, _) in
-                        if error == nil {
+            
+            
+            //Se for uma mensagem enviada, grava como conversationsSend no usuario que esta enviando e conversationsRec no usuario destiono
+            
+            if(!recebida){
+                Database.database().reference().child("users").child(currentUserID).child("conversationsSend").child(toID).observeSingleEvent(of: .value, with: { (snapshot) in
+                    if snapshot.exists() {
+                        let data = snapshot.value as! [String: String]
+                        let location = data["location"]!
+                        Database.database().reference().child("conversations").child(location).childByAutoId().setValue(withValues, withCompletionBlock: { (error, _) in
+                            if error == nil {
+                                completion(true)
+                            } else {
+                                completion(false)
+                            }
+                        })
+                    } else {
+                        Database.database().reference().child("conversations").childByAutoId().childByAutoId().setValue(withValues, withCompletionBlock: { (error, reference) in
+                            
+                            let data = ["location": reference.parent!.key]
+                            Database.database().reference().child("users").child(currentUserID).child("conversationsSend").child(toID).updateChildValues(data)
+                            Database.database().reference().child("users").child(toID).child("conversationsRec").child(currentUserID).updateChildValues(data)
                             completion(true)
-                        } else {
-                            completion(false)
-                        }
-                    })
-                } else {
-                    Database.database().reference().child("conversations").childByAutoId().childByAutoId().setValue(withValues, withCompletionBlock: { (error, reference) in
+                        })
                         
-                    let data = ["location": reference.parent!.key]
-                        Database.database().reference().child("users").child(currentUserID).child("conversations").child(toID).updateChildValues(data)
-                        completion(true)
-                    })
                     
-                    
-                    Database.database().reference().child("conversationsRec").childByAutoId().childByAutoId().setValue(withValues, withCompletionBlock: { (error, reference) in
+                    }
+                })
+            }else{
+                Database.database().reference().child("users").child(currentUserID).child("conversationsRec").child(toID).observeSingleEvent(of: .value, with: { (snapshot) in
+                    if snapshot.exists() {
+                        let data = snapshot.value as! [String: String]
+                        let location = data["location"]!
+                        Database.database().reference().child("conversations").child(location).childByAutoId().setValue(withValues, withCompletionBlock: { (error, _) in
+                            if error == nil {
+                                completion(true)
+                            } else {
+                                completion(false)
+                            }
+                        })
+                    } else {
+                        Database.database().reference().child("conversations").childByAutoId().childByAutoId().setValue(withValues, withCompletionBlock: { (error, reference) in
+                            
+                            let data = ["location": reference.parent!.key]
+                            Database.database().reference().child("users").child(currentUserID).child("conversationsRec").child(toID).updateChildValues(data)
+                            Database.database().reference().child("users").child(toID).child("conversationsSenc").child(currentUserID).updateChildValues(data)
+                            completion(true)
+                        })
                         
-                        let data = ["location": reference.parent!.key]
-                        Database.database().reference().child("conversationsRec").childByAutoId().childByAutoId().setValue(withValues)
                         
-                        Database.database().reference().child("users").child(toID).child("conversationsRec").child(currentUserID).updateChildValues(data)
-                        completion(true)
-                    })
-                }
-            })
+                    }
+                })
+            }
+            
+        
         }
     }
     
