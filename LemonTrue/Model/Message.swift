@@ -209,10 +209,6 @@ class Message {
                             }
                         }
                         
-                        
-                    
-                        
-                        
                     }
                 })
             case .text:

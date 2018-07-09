@@ -33,6 +33,7 @@ class User: NSObject {
     let email: String
     let id: String
     var profilePic: UIImage
+    let nickName: String
     
     //MARK: Methods
     class func registerUser(withName: String, email: String, password: String, profilePic: UIImage, completion: @escaping (Bool) -> Swift.Void) {
@@ -46,8 +47,6 @@ class User: NSObject {
                         
                         // Fetch the download URL
                         storageRef.downloadURL { url, error in
-                            
-                            
                             if let error = error {
                                 // Handle any errors
                             } else {
@@ -138,7 +137,7 @@ class User: NSObject {
                 URLSession.shared.dataTask(with: link!, completionHandler: { (data, response, error) in
                     if error == nil {
                         let profilePic = UIImage.init(data: data!)
-                        let user = User.init(name: name, email: email, id: forUserID, profilePic: profilePic!)
+                        let user = User.init(name: name, email: email, id: forUserID, profilePic: profilePic!,nickName: "")
                         completion(user)
                     }
                 }).resume()
@@ -160,7 +159,7 @@ class User: NSObject {
                 URLSession.shared.dataTask(with: link!, completionHandler: { (data, response, error) in
                     if error == nil {
                         let profilePic = UIImage.init(data: data!)
-                        let user = User.init(name: name, email: email, id: id, profilePic: profilePic!)
+                        let user = User.init(name: name, email: email, id: id, profilePic: profilePic!, nickName: "")
                         completion(user)
                     }
                 }).resume()
@@ -178,11 +177,12 @@ class User: NSObject {
 
     
     //MARK: Inits
-    init(name: String, email: String, id: String, profilePic: UIImage) {
+    init(name: String, email: String, id: String, profilePic: UIImage, nickName: String) {
         self.name = name
         self.email = email
         self.id = id
         self.profilePic = profilePic
+        self.nickName = nickName
     }
 }
 

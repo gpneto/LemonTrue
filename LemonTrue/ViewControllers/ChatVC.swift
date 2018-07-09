@@ -61,6 +61,8 @@ class ChatVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UITe
         self.tableView.scrollIndicatorInsets.bottom = self.barHeight
         if(!recebida){
         self.navigationItem.title = self.currentUser?.name
+        }else{
+        self.navigationItem.title =  self.currentUser?.nickName
         }
         self.navigationItem.setHidesBackButton(true, animated: false)
         let icon = UIImage.init(named: "back")?.withRenderingMode(.alwaysOriginal)

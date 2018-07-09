@@ -210,6 +210,17 @@ class ConversationsVC: UIViewController, UITableViewDelegate, UITableViewDataSou
         super.viewDidLoad()
         self.customization()
         self.fetchData()
+        
+        //Verifica se o Usuário já tem NickName
+        if let currentUserID = Auth.auth().currentUser?.uid {
+            Database.database().reference().child("users").child(currentUserID).child("nickName").observe(.value, with: { (snapshot) in
+                if !snapshot.exists() {
+                    let vc = self.storyboard?.instantiateViewController(withIdentifier: "Welcome") as! WelcomeVC
+                    vc.register = true
+                    self.present(vc, animated: false, completion: nil)
+                }
+            })
+        }
     }
     
     override func viewDidAppear(_ animated: Bool) {
