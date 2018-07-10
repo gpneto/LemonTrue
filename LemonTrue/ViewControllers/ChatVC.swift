@@ -51,7 +51,6 @@ class ChatVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UITe
     var canSendLocation = true
     var recebida = true
     
-    
     //MARK: Methods
     func customization() {
         self.imagePicker.delegate = self

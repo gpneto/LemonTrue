@@ -25,16 +25,23 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="launch" translatesAutoresizingMaskIntoConstraints="NO" id="g9y-4f-zKI">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="telafundo7" translatesAutoresizingMaskIntoConstraints="NO" id="g9y-4f-zKI">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logoLemon2" translatesAutoresizingMaskIntoConstraints="NO" id="c92-3l-RBT">
+                                <rect key="frame" x="60" y="195" width="255" height="252"/>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="g9y-4f-zKI" firstAttribute="top" secondItem="rjW-uY-iLi" secondAttribute="top" id="0ZV-hC-V7x"/>
+                            <constraint firstItem="c92-3l-RBT" firstAttribute="top" secondItem="AgF-TM-zpJ" secondAttribute="bottom" constant="175" id="212-jB-0pb"/>
                             <constraint firstAttribute="trailing" secondItem="g9y-4f-zKI" secondAttribute="trailing" id="2Fs-UR-QLV"/>
                             <constraint firstItem="sSn-uo-ou0" firstAttribute="top" secondItem="g9y-4f-zKI" secondAttribute="bottom" id="IIk-zS-qZ8"/>
                             <constraint firstItem="g9y-4f-zKI" firstAttribute="leading" secondItem="rjW-uY-iLi" secondAttribute="leading" id="LRW-bi-d6V"/>
+                            <constraint firstItem="c92-3l-RBT" firstAttribute="leading" secondItem="Sl4-hs-Bm7" secondAttribute="leading" constant="60" id="V5v-8n-PTD"/>
+                            <constraint firstItem="sSn-uo-ou0" firstAttribute="top" secondItem="c92-3l-RBT" secondAttribute="bottom" constant="220" id="fLR-yQ-KYt"/>
+                            <constraint firstAttribute="trailing" secondItem="c92-3l-RBT" secondAttribute="trailing" constant="60" id="uNn-Uy-OZe"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Sl4-hs-Bm7"/>
                     </view>
@@ -55,27 +62,26 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background" translatesAutoresizingMaskIntoConstraints="NO" id="Fbc-6F-tTa">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="telafundo7" translatesAutoresizingMaskIntoConstraints="NO" id="Fbc-6F-tTa">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                             </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TIh-8b-FQQ">
+                                <rect key="frame" x="50" y="440" width="275" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="ka7-7Q-jbH"/>
+                                </constraints>
+                                <state key="normal" backgroundImage="FacebookButton"/>
+                                <connections>
+                                    <action selector="facebookLogin:" destination="coH-Wz-vcZ" eventType="touchUpInside" id="PLP-rr-qSZ"/>
+                                </connections>
+                            </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="clouds" translatesAutoresizingMaskIntoConstraints="NO" id="r1U-mL-9vb">
                                 <rect key="frame" x="0.0" y="567" width="750" height="100"/>
                                 <accessibility key="accessibilityConfiguration">
                                     <accessibilityTraits key="traits" image="YES" notEnabled="YES"/>
                                 </accessibility>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gWe-AS-APu">
-                                <rect key="frame" x="98" y="627" width="180" height="30"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="180" id="SRL-VT-ph8"/>
-                                    <constraint firstAttribute="height" constant="30" id="VXs-D1-wMY"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="18"/>
-                                <state key="normal">
-                                    <color key="titleColor" red="0.63137254899999995" green="0.44705882349999998" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                </state>
-                            </button>
-                            <view hidden="YES" alpha="0.5" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Oya-eJ-Di3">
+                            <view hidden="YES" alpha="0.050000000000000003" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Oya-eJ-Di3">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <subviews>
                                     <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="3KW-va-CbQ">
@@ -92,15 +98,16 @@
                                     <constraint firstItem="3KW-va-CbQ" firstAttribute="centerX" secondItem="Oya-eJ-Di3" secondAttribute="centerX" id="e3e-Rr-cuR"/>
                                 </constraints>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TIh-8b-FQQ">
-                                <rect key="frame" x="50" y="293" width="275" height="80"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gWe-AS-APu">
+                                <rect key="frame" x="98" y="627" width="180" height="30"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="80" id="ka7-7Q-jbH"/>
+                                    <constraint firstAttribute="width" constant="180" id="SRL-VT-ph8"/>
+                                    <constraint firstAttribute="height" constant="30" id="VXs-D1-wMY"/>
                                 </constraints>
-                                <state key="normal" backgroundImage="FacebookButton"/>
-                                <connections>
-                                    <action selector="facebookLogin:" destination="coH-Wz-vcZ" eventType="touchUpInside" id="PLP-rr-qSZ"/>
-                                </connections>
+                                <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="18"/>
+                                <state key="normal">
+                                    <color key="titleColor" red="0.63137254899999995" green="0.44705882349999998" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -113,14 +120,12 @@
                             <constraint firstItem="gWe-AS-APu" firstAttribute="centerX" secondItem="eQe-4w-Q3J" secondAttribute="centerX" id="RVK-ND-lXi"/>
                             <constraint firstItem="r1U-mL-9vb" firstAttribute="height" secondItem="eQe-4w-Q3J" secondAttribute="height" multiplier="0.15" id="Tai-Lf-0d1"/>
                             <constraint firstItem="gYG-Ck-7qO" firstAttribute="top" secondItem="r1U-mL-9vb" secondAttribute="bottom" id="WAN-It-61u"/>
-                            <constraint firstItem="TIh-8b-FQQ" firstAttribute="centerX" secondItem="gWe-AS-APu" secondAttribute="centerX" id="WLw-Lw-KgA"/>
                             <constraint firstItem="gYG-Ck-7qO" firstAttribute="top" secondItem="Fbc-6F-tTa" secondAttribute="bottom" id="ZJJ-wi-mJU"/>
                             <constraint firstItem="Oya-eJ-Di3" firstAttribute="leading" secondItem="eQe-4w-Q3J" secondAttribute="leading" id="bBa-Xf-x8u"/>
-                            <constraint firstItem="TIh-8b-FQQ" firstAttribute="centerY" secondItem="Oya-eJ-Di3" secondAttribute="centerY" id="c5Y-qt-xs4"/>
                             <constraint firstItem="r1U-mL-9vb" firstAttribute="leading" secondItem="eQe-4w-Q3J" secondAttribute="leading" id="cf5-bf-8dH"/>
                             <constraint firstItem="gYG-Ck-7qO" firstAttribute="top" secondItem="gWe-AS-APu" secondAttribute="bottom" constant="10" id="h4s-TG-zWB"/>
                             <constraint firstItem="Oya-eJ-Di3" firstAttribute="top" secondItem="eQe-4w-Q3J" secondAttribute="top" id="hmb-Fp-VIG"/>
-                            <constraint firstItem="TIh-8b-FQQ" firstAttribute="leading" secondItem="aJ0-DS-cCc" secondAttribute="leading" constant="50" id="mxd-uo-FJg"/>
+                            <constraint firstItem="TIh-8b-FQQ" firstAttribute="top" secondItem="ATp-6d-bpY" secondAttribute="bottom" constant="420" id="oYg-6U-TPY"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="aJ0-DS-cCc"/>
                     </view>
@@ -1014,7 +1019,6 @@
     </scenes>
     <resources>
         <image name="FacebookButton" width="716" height="154"/>
-        <image name="background" width="375" height="667"/>
         <image name="button" width="60" height="20"/>
         <image name="button:Qc4-XH-Ade:backgroundImage" width="25" height="25">
             <mutableData key="keyedArchiveRepresentation">
@@ -1986,7 +1990,7 @@ lqaYppqmnKalpqqmsKa4prqmvKa+psCmxabNuDm4O7hAuE64UrhZuF64a7huuHu4gLiIuIu4kLiYuJu4
 rbiwuLUAAAAAAAACAQAAAAAAAABZAAAAAAAAAAAAAAAAAAC4tw
 </mutableData>
         </image>
-        <image name="launch" width="375" height="667"/>
+        <image name="logoLemon2" width="409" height="409"/>
         <image name="more" width="32" height="25"/>
         <image name="profile pic" width="100" height="100"/>
         <image name="selectCamera" width="32" height="25"/>
@@ -1994,6 +1998,7 @@ rbiwuLUAAAAAAAACAQAAAAAAAABZAAAAAAAAAAAAAAAAAAC4tw
         <image name="selectMessage" width="32" height="25"/>
         <image name="selectPhoto" width="32" height="25"/>
         <image name="send" width="32" height="25"/>
+        <image name="telafundo7" width="550" height="309"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="mPa-sU-8TP"/>
