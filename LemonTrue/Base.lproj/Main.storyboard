@@ -65,10 +65,11 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="telafundo7" translatesAutoresizingMaskIntoConstraints="NO" id="Fbc-6F-tTa">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TIh-8b-FQQ">
-                                <rect key="frame" x="50" y="440" width="275" height="50"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TIh-8b-FQQ">
+                                <rect key="frame" x="50" y="470" width="275" height="60"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="50" id="ka7-7Q-jbH"/>
+                                    <constraint firstAttribute="width" constant="275" id="kI0-kj-ON8"/>
+                                    <constraint firstAttribute="height" constant="60" id="ka7-7Q-jbH"/>
                                 </constraints>
                                 <state key="normal" backgroundImage="FacebookButton"/>
                                 <connections>
@@ -80,6 +81,9 @@
                                 <accessibility key="accessibilityConfiguration">
                                     <accessibilityTraits key="traits" image="YES" notEnabled="YES"/>
                                 </accessibility>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logoLemon2" translatesAutoresizingMaskIntoConstraints="NO" id="p1r-ch-iZO">
+                                <rect key="frame" x="60" y="140" width="255" height="282"/>
                             </imageView>
                             <view hidden="YES" alpha="0.050000000000000003" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Oya-eJ-Di3">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
@@ -112,20 +116,26 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="TIh-8b-FQQ" firstAttribute="leading" secondItem="aJ0-DS-cCc" secondAttribute="leading" constant="50" id="2Fr-zN-iro"/>
                             <constraint firstAttribute="trailing" secondItem="Fbc-6F-tTa" secondAttribute="trailing" id="2mx-vc-GCS"/>
                             <constraint firstAttribute="trailing" secondItem="Oya-eJ-Di3" secondAttribute="trailing" id="6Jr-w6-0ev"/>
                             <constraint firstItem="Fbc-6F-tTa" firstAttribute="top" secondItem="eQe-4w-Q3J" secondAttribute="top" id="80S-Bn-4Ud"/>
                             <constraint firstItem="gYG-Ck-7qO" firstAttribute="top" secondItem="Oya-eJ-Di3" secondAttribute="bottom" id="Ev9-Mf-Atf"/>
+                            <constraint firstItem="aJ0-DS-cCc" firstAttribute="trailing" secondItem="TIh-8b-FQQ" secondAttribute="trailing" constant="50" id="NiF-Kb-i3r"/>
                             <constraint firstItem="Fbc-6F-tTa" firstAttribute="leading" secondItem="eQe-4w-Q3J" secondAttribute="leading" id="PQd-El-t2x"/>
                             <constraint firstItem="gWe-AS-APu" firstAttribute="centerX" secondItem="eQe-4w-Q3J" secondAttribute="centerX" id="RVK-ND-lXi"/>
                             <constraint firstItem="r1U-mL-9vb" firstAttribute="height" secondItem="eQe-4w-Q3J" secondAttribute="height" multiplier="0.15" id="Tai-Lf-0d1"/>
+                            <constraint firstItem="aJ0-DS-cCc" firstAttribute="trailing" secondItem="p1r-ch-iZO" secondAttribute="trailing" constant="60" id="UEK-bM-yQu"/>
                             <constraint firstItem="gYG-Ck-7qO" firstAttribute="top" secondItem="r1U-mL-9vb" secondAttribute="bottom" id="WAN-It-61u"/>
                             <constraint firstItem="gYG-Ck-7qO" firstAttribute="top" secondItem="Fbc-6F-tTa" secondAttribute="bottom" id="ZJJ-wi-mJU"/>
                             <constraint firstItem="Oya-eJ-Di3" firstAttribute="leading" secondItem="eQe-4w-Q3J" secondAttribute="leading" id="bBa-Xf-x8u"/>
                             <constraint firstItem="r1U-mL-9vb" firstAttribute="leading" secondItem="eQe-4w-Q3J" secondAttribute="leading" id="cf5-bf-8dH"/>
                             <constraint firstItem="gYG-Ck-7qO" firstAttribute="top" secondItem="gWe-AS-APu" secondAttribute="bottom" constant="10" id="h4s-TG-zWB"/>
                             <constraint firstItem="Oya-eJ-Di3" firstAttribute="top" secondItem="eQe-4w-Q3J" secondAttribute="top" id="hmb-Fp-VIG"/>
-                            <constraint firstItem="TIh-8b-FQQ" firstAttribute="top" secondItem="ATp-6d-bpY" secondAttribute="bottom" constant="420" id="oYg-6U-TPY"/>
+                            <constraint firstItem="r1U-mL-9vb" firstAttribute="top" secondItem="p1r-ch-iZO" secondAttribute="bottom" constant="145" id="kTc-xk-3iA"/>
+                            <constraint firstItem="p1r-ch-iZO" firstAttribute="leading" secondItem="aJ0-DS-cCc" secondAttribute="leading" constant="60" id="khN-fi-lsm"/>
+                            <constraint firstItem="p1r-ch-iZO" firstAttribute="top" secondItem="ATp-6d-bpY" secondAttribute="bottom" constant="120" id="lO1-53-NHv"/>
+                            <constraint firstItem="TIh-8b-FQQ" firstAttribute="top" secondItem="ATp-6d-bpY" secondAttribute="bottom" constant="450" id="oYg-6U-TPY"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="aJ0-DS-cCc"/>
                     </view>
