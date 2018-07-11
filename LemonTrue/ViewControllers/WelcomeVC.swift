@@ -92,6 +92,11 @@ class WelcomeVC: UIViewController, UITextFieldDelegate, UINavigationControllerDe
         }
     }
     
+    func pushToNickName() {
+        let vc = self.storyboard?.instantiateViewController(withIdentifier: "NickName") as! NickName
+        self.show(vc, sender: nil)
+    }
+    
     func pushTomainView() {
         let vc = self.storyboard?.instantiateViewController(withIdentifier: "Navigation") as! NavVC
         self.show(vc, sender: nil)
@@ -206,7 +211,7 @@ class WelcomeVC: UIViewController, UITextFieldDelegate, UINavigationControllerDe
                 DispatchQueue.main.async {
                     weakSelf?.showLoading(state: false)
                     if status == true {
-                        weakSelf?.pushTomainView()
+                        weakSelf?.pushToNickName()
                     } else {
                         for item in (weakSelf?.waringLabels)! {
                             item.isHidden = false

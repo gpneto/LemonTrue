@@ -175,7 +175,7 @@ class ConversationsRecVC: UIViewController, UITableViewDelegate, UITableViewData
            // cell.profilePic.image = self.items[indexPath.row].user.profilePic
             cell.profilePic.image = #imageLiteral(resourceName: "profile pic")
           //  cell.nameLabel.text = self.items[indexPath.row].user.name
-            cell.nameLabel.text = "Anonimo"
+            cell.nameLabel.text = self.items[indexPath.row].user.nickName
             switch self.items[indexPath.row].lastMessage.type {
             case .text:
                 let message = self.items[indexPath.row].lastMessage.content as! String

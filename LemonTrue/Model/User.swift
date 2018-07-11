@@ -131,13 +131,17 @@ class User: NSObject {
         Database.database().reference().child("users").child(forUserID).child("credentials").observeSingleEvent(of: .value, with: { (snapshot) in
             if let data = snapshot.value as? [String: String] {
                 let name = data["name"]!
+                 var nickName = "Anonimo"
+                 if let nk =  data["nickName"] {
+                    nickName = nk
+                }
                
                 let email = data["email"]!
                 let link = URL.init(string: data["profilePicLink"]!)
                 URLSession.shared.dataTask(with: link!, completionHandler: { (data, response, error) in
                     if error == nil {
                         let profilePic = UIImage.init(data: data!)
-                        let user = User.init(name: name, email: email, id: forUserID, profilePic: profilePic!,nickName: "")
+                        let user = User.init(name: name, email: email, id: forUserID, profilePic: profilePic!,nickName: nickName)
                         completion(user)
                     }
                 }).resume()
@@ -153,13 +157,17 @@ class User: NSObject {
             let credentials = data["credentials"] as! [String: String]
             if id != exceptID {
                 let name = credentials["name"]!
-               
+                var nickName = "Anonimo"
+                if let nk =  credentials["nickName"] {
+                    nickName = nk
+                }
+                
                 let email = credentials["email"]!
                 let link = URL.init(string: credentials["profilePicLink"]!)
                 URLSession.shared.dataTask(with: link!, completionHandler: { (data, response, error) in
                     if error == nil {
                         let profilePic = UIImage.init(data: data!)
-                        let user = User.init(name: name, email: email, id: id, profilePic: profilePic!, nickName: "")
+                        let user = User.init(name: name, email: email, id: id, profilePic: profilePic!, nickName: nickName)
                         completion(user)
                     }
                 }).resume()

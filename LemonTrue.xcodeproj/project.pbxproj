@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		816E90BD20F62FEA00C7CAD2 /* NickName.swift in Sources */ = {isa = PBXBuildFile; fileRef = 816E90BC20F62FEA00C7CAD2 /* NickName.swift */; };
 		8189E0BD20EF987E002F5CF1 /* ConversationsRecVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8189E0BC20EF987E002F5CF1 /* ConversationsRecVC.swift */; };
 		819CC97620EBBADE008E9411 /* newMessage.wav in Resources */ = {isa = PBXBuildFile; fileRef = 819CC97520EBBADE008E9411 /* newMessage.wav */; };
 		81C5CF2720E3CDFD00912118 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81C5CF2620E3CDFD00912118 /* AppDelegate.swift */; };
@@ -32,6 +33,7 @@
 /* Begin PBXFileReference section */
 		3836D6E553EBF99CB1C543DC /* Pods_LemonTrue.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LemonTrue.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5F83F79CB34E659406121A88 /* Pods-LemonTrue.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LemonTrue.debug.xcconfig"; path = "Pods/Target Support Files/Pods-LemonTrue/Pods-LemonTrue.debug.xcconfig"; sourceTree = "<group>"; };
+		816E90BC20F62FEA00C7CAD2 /* NickName.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NickName.swift; sourceTree = "<group>"; };
 		8189E0BC20EF987E002F5CF1 /* ConversationsRecVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConversationsRecVC.swift; sourceTree = "<group>"; };
 		819CC97520EBBADE008E9411 /* newMessage.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = newMessage.wav; sourceTree = "<group>"; };
 		81C5CF2320E3CDFD00912118 /* LemonTrue.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LemonTrue.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -133,6 +135,7 @@
 				81ED5A4820E5256200FD5821 /* WelcomeVC.swift */,
 				81ED5A5820E5265B00FD5821 /* Helper Files.swift */,
 				8189E0BC20EF987E002F5CF1 /* ConversationsRecVC.swift */,
+				816E90BC20F62FEA00C7CAD2 /* NickName.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -285,6 +288,7 @@
 				81ED5A4F20E5256400FD5821 /* NavVC.swift in Sources */,
 				81C5CF2720E3CDFD00912118 /* AppDelegate.swift in Sources */,
 				81ED5A4E20E5256400FD5821 /* WelcomeVC.swift in Sources */,
+				816E90BD20F62FEA00C7CAD2 /* NickName.swift in Sources */,
 				81ED5A5C20E5269000FD5821 /* Message.swift in Sources */,
 				81ED5A5A20E5267E00FD5821 /* Helper Files.swift in Sources */,
 				81ED5A4B20E5256400FD5821 /* ConversationsVC.swift in Sources */,

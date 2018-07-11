@@ -49,7 +49,6 @@ class LandingVC: UIViewController {
     
     //MARK: Check if user is signed in or not
     override func viewDidAppear(_ animated: Bool) {
-        print("entrou")
        
         super.viewDidAppear(animated)
         
