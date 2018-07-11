@@ -88,7 +88,7 @@ class NavVC: UINavigationController, UICollectionViewDelegate, UICollectionViewD
         self.profileView.layer.cornerRadius = 5
         self.profileView.clipsToBounds = true
         self.profileView.isHidden = true
-        self.profilePicView.layer.borderColor = GlobalVariables.purple.cgColor
+        self.profilePicView.layer.borderColor = GlobalVariables.blueLemon.cgColor
         self.profilePicView.layer.borderWidth = 3
         self.view.layoutIfNeeded()
     //PreviewView Customization
@@ -113,6 +113,7 @@ class NavVC: UINavigationController, UICollectionViewDelegate, UICollectionViewD
         NotificationCenter.default.addObserver(self, selector: #selector(self.showExtraViews(notification:)), name: NSNotification.Name(rawValue: "showExtraView"), object: nil)
         self.fetchUsers()
         self.fetchUserInfo()
+    
 
     }
     
@@ -248,7 +249,7 @@ class NavVC: UINavigationController, UICollectionViewDelegate, UICollectionViewD
             cell.profilePic.image = self.items[indexPath.row].profilePic
             cell.nameLabel.text = self.items[indexPath.row].name
             cell.profilePic.layer.borderWidth = 2
-            cell.profilePic.layer.borderColor = GlobalVariables.purple.cgColor
+            cell.profilePic.layer.borderColor = GlobalVariables.blueLemon.cgColor
             return cell
         }
     }

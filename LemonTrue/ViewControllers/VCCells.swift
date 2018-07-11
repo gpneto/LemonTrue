@@ -84,7 +84,7 @@ class ConversationsTBCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         self.profilePic.layer.borderWidth = 2
-        self.profilePic.layer.borderColor = GlobalVariables.purple.cgColor
+        self.profilePic.layer.borderColor = GlobalVariables.blueLemon.cgColor
     }
     
 }

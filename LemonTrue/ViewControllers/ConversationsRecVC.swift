@@ -43,12 +43,13 @@ class ConversationsRecVC: UIViewController, UITableViewDelegate, UITableViewData
         self.navigationController?.interactivePopGestureRecognizer?.delegate = nil
         //NavigationBar customization
         let navigationTitleFont = UIFont(name: "AvenirNext-Regular", size: 18)!
-        self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedStringKey.font: navigationTitleFont, NSAttributedStringKey.foregroundColor: UIColor.white]
+        self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedStringKey.font: navigationTitleFont, NSAttributedStringKey.foregroundColor: UIColor.black]
+        self.navigationController?.navigationBar.tintColor = UIColor.black;
         // notification setup
         NotificationCenter.default.addObserver(self, selector: #selector(self.pushToUserMesssages(notification:)), name: NSNotification.Name(rawValue: "showUserMessagesRec"), object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(self.showEmailAlert), name: Notification.Name.UIApplicationDidBecomeActive, object: nil)
         //right bar button
-        let icon = UIImage.init(named: "compose")?.withRenderingMode(.alwaysOriginal)
+        let icon = UIImage.init(named: "users")?.withRenderingMode(.alwaysOriginal)
         let rightButton = UIBarButtonItem.init(image: icon!, style: .plain, target: self, action: #selector(ConversationsRecVC.showContacts))
         self.tabBarController?.navigationItem.rightBarButtonItem = rightButton
         //left bar button image fetching
@@ -195,7 +196,7 @@ class ConversationsRecVC: UIViewController, UITableViewDelegate, UITableViewData
                 cell.messageLabel.font = UIFont(name:"AvenirNext-DemiBold", size: 14.0)
                 cell.timeLabel.font = UIFont(name:"AvenirNext-DemiBold", size: 13.0)
                 cell.profilePic.layer.borderColor = GlobalVariables.blue.cgColor
-                cell.messageLabel.textColor = GlobalVariables.purple
+                cell.messageLabel.textColor = GlobalVariables.blueLemon
             }
             return cell
         }

@@ -17,14 +17,24 @@ class NickName: UIViewController{
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        if let currentUserID = Auth.auth().currentUser?.photoURL?.absoluteString {
-            
-            let url = URL(string: currentUserID)
-            let data = try? Data(contentsOf: url!) //make sure your image in this url does exist, otherwise unwrap in a if let check / try-catch
-            imgProfile.image = UIImage(data: data!)
-            
-        }
         
+       
+            if let user = Auth.auth().currentUser {
+                User.info(forUserID: user.uid, completion: { [weak weakSelf = self] (user) in
+                    
+                     DispatchQueue.main.async(execute: {
+                    let image = user.profilePic
+                    
+                    self.tfNickname.text = user.nickName
+                    self.imgProfile.image = image
+                      })
+                    
+                    
+                })
+            }
+      
+        
+    
        
     
     }
