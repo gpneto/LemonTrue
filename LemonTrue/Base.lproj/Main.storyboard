@@ -62,7 +62,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="telafundo7" translatesAutoresizingMaskIntoConstraints="NO" id="Fbc-6F-tTa">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="telafundo3" translatesAutoresizingMaskIntoConstraints="NO" id="Fbc-6F-tTa">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TIh-8b-FQQ">
@@ -1013,7 +1013,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="GoD-FJ-4BF"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Enviadas" id="o7U-Gr-4U1"/>
+                    <tabBarItem key="tabBarItem" title="Enviadas" image="btn_bluesky_env_3" id="o7U-Gr-4U1"/>
                     <navigationItem key="navigationItem" title="Conversations" id="Lkq-cP-Ska"/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <connections>
@@ -1029,6 +1029,7 @@
     </scenes>
     <resources>
         <image name="FacebookButton" width="716" height="154"/>
+        <image name="btn_bluesky_env_3" width="120" height="40"/>
         <image name="button" width="60" height="20"/>
         <image name="button:Qc4-XH-Ade:backgroundImage" width="25" height="25">
             <mutableData key="keyedArchiveRepresentation">
@@ -2002,15 +2003,16 @@ rbiwuLUAAAAAAAACAQAAAAAAAABZAAAAAAAAAAAAAAAAAAC4tw
         </image>
         <image name="logoLemon2" width="409" height="409"/>
         <image name="more" width="32" height="25"/>
-        <image name="profile pic" width="100" height="100"/>
+        <image name="profile pic" width="480" height="437"/>
         <image name="selectCamera" width="32" height="25"/>
         <image name="selectLocation" width="32" height="25"/>
         <image name="selectMessage" width="32" height="25"/>
         <image name="selectPhoto" width="32" height="25"/>
         <image name="send" width="32" height="25"/>
+        <image name="telafundo3" width="626" height="417"/>
         <image name="telafundo7" width="550" height="309"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="mPa-sU-8TP"/>
+        <segue reference="Btq-kz-D26"/>
     </inferredMetricsTieBreakers>
 </document>
