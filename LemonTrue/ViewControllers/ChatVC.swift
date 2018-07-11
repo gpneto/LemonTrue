@@ -242,7 +242,8 @@ class ChatVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UITe
         case .sender:
             let cell = tableView.dequeueReusableCell(withIdentifier: "Sender", for: indexPath) as! SenderCell
             cell.clearCellData()
-            cell.profilePic.image = self.currentUser?.profilePic
+            //cell.profilePic.image = self.currentUser?.profilePic
+            cell.profilePic.image = #imageLiteral(resourceName: "profile pic")
             switch self.items[indexPath.row].type {
             case .text:
                 cell.message.text = self.items[indexPath.row].content as! String
