@@ -53,6 +53,7 @@ class ChatVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UITe
     
     //MARK: Methods
     func customization() {
+        //self.inputBar.isHidden = true
         self.imagePicker.delegate = self
         self.tableView.estimatedRowHeight = self.barHeight
         self.tableView.rowHeight = UITableViewAutomaticDimension
@@ -68,6 +69,37 @@ class ChatVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UITe
         let backButton = UIBarButtonItem.init(image: icon!, style: .plain, target: self, action: #selector(self.dismissSelf))
         self.navigationItem.leftBarButtonItem = backButton
         self.locationManager.delegate = self
+        
+        
+        if(recebida){
+            
+            User.checkBlockUser(user: self.currentUser!) { (sucess) in
+                if(sucess){
+                    let icone = UIImage.init(named: "bloqueio_ativo")?.withRenderingMode(.alwaysOriginal)
+                    let rightButton = UIBarButtonItem.init(image: icone!, style: .plain, target: self, action: #selector(self.desblockUser))
+                    self.navigationItem.rightBarButtonItem = rightButton
+                }else {
+                    let icone = UIImage.init(named: "bloqueio")?.withRenderingMode(.alwaysOriginal)
+                    let rightButton = UIBarButtonItem.init(image: icone!, style: .plain, target: self, action: #selector(self.blockUser))
+                    self.navigationItem.rightBarButtonItem = rightButton
+                }
+            }
+            
+            
+          
+            
+            
+        }else{
+          /*  User.checkBlockUserMy(user: self.currentUser!) { (sucess) in
+                if(sucess){
+                     self.inputBar.isHidden = true
+                }else {
+                     self.inputBar.isHidden = false
+                }
+            }
+            */
+           
+        }
     }
     
     //Downloads messages
@@ -106,6 +138,44 @@ class ChatVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UITe
         if let navController = self.navigationController {
             navController.popViewController(animated: true)
         }
+    }
+    
+    //Hides current viewcontroller
+    @objc func blockUser() {
+        var refreshAlert = UIAlertController(title: "Bloquear", message: "Tem certeza que deseja bloquear o Usuário?", preferredStyle: .alert)
+        
+        refreshAlert.addAction(UIAlertAction(title: "Sim", style: .default, handler: { (action: UIAlertAction!) in
+            User.blockUser(user: self.currentUser!, completion: { (sucesss) in
+                let icone = UIImage.init(named: "bloqueio_ativo")?.withRenderingMode(.alwaysOriginal)
+                let rightButton = UIBarButtonItem.init(image: icone!, style: .plain, target: self, action: #selector(self.blockUser))
+                self.navigationItem.rightBarButtonItem = rightButton
+            })
+        }))
+        
+        refreshAlert.addAction(UIAlertAction(title: "Não", style: .cancel, handler: { (action: UIAlertAction!) in
+            
+        }))
+        
+        present(refreshAlert, animated: true, completion: nil)
+    }
+    
+    //Hides current viewcontroller
+    @objc func desblockUser() {
+        var refreshAlert = UIAlertController(title: "Desboquear", message: "Tem certeza que deseja desbloquear o Usuário?", preferredStyle: .alert)
+        
+        refreshAlert.addAction(UIAlertAction(title: "Sim", style: .default, handler: { (action: UIAlertAction!) in
+            User.desblockUser(user: self.currentUser!, completion: { (sucesss) in
+                let icone = UIImage.init(named: "bloqueio")?.withRenderingMode(.alwaysOriginal)
+                let rightButton = UIBarButtonItem.init(image: icone!, style: .plain, target: self, action: #selector(self.blockUser))
+                self.navigationItem.rightBarButtonItem = rightButton
+            })
+        }))
+        
+        refreshAlert.addAction(UIAlertAction(title: "Não", style: .cancel, handler: { (action: UIAlertAction!) in
+            
+        }))
+        
+        present(refreshAlert, animated: true, completion: nil)
     }
     
     func composeMessage(type: MessageType, content: Any)  {

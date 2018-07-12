@@ -44,6 +44,11 @@ class NavVC: UINavigationController, UICollectionViewDelegate, UICollectionViewD
     var topAnchorContraint: NSLayoutConstraint!
     let darkView = UIView.init()
     var items = [User]()
+    var filtered = [User]()
+    @IBOutlet weak var serachBar: UISearchBar!
+    
+    
+     var searchActive : Bool = false
     
     //MARK: Methods
     func customization() {
@@ -113,6 +118,7 @@ class NavVC: UINavigationController, UICollectionViewDelegate, UICollectionViewD
         NotificationCenter.default.addObserver(self, selector: #selector(self.showExtraViews(notification:)), name: NSNotification.Name(rawValue: "showExtraView"), object: nil)
         self.fetchUsers()
         self.fetchUserInfo()
+        serachBar.delegate = self
     
 
     }
@@ -236,6 +242,9 @@ class NavVC: UINavigationController, UICollectionViewDelegate, UICollectionViewD
         if self.items.count == 0 {
             return 1
         } else {
+            if(searchActive) {
+                return filtered.count
+            }
             return self.items.count
         }
     }
@@ -245,11 +254,20 @@ class NavVC: UINavigationController, UICollectionViewDelegate, UICollectionViewD
             let cell  = collectionView.dequeueReusableCell(withReuseIdentifier: "Empty Cell", for: indexPath)
             return cell
         } else {
+            
+            var user : User
+            if(searchActive){
+          user = self.filtered[indexPath.row]
+            } else {
+                user = self.items[indexPath.row]
+            }
+            
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath) as! ContactsCVCell
-            cell.profilePic.image = self.items[indexPath.row].profilePic
-            cell.nameLabel.text = self.items[indexPath.row].name
+            cell.profilePic.image = user.profilePic
+            cell.nameLabel.text = user.name
             cell.profilePic.layer.borderWidth = 2
             cell.profilePic.layer.borderColor = GlobalVariables.blueLemon.cgColor
+            
             return cell
         }
     }
@@ -257,7 +275,13 @@ class NavVC: UINavigationController, UICollectionViewDelegate, UICollectionViewD
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if self.items.count > 0 {
             self.dismissExtraViews()
-            let userInfo = ["user": self.items[indexPath.row]]
+            var userInfo : Dictionary<String, User>
+            if(searchActive) {
+               userInfo  = ["user": self.filtered[indexPath.row]]
+            }else {
+                userInfo = ["user": self.items[indexPath.row]]
+            }
+        
             NotificationCenter.default.post(name: NSNotification.Name(rawValue: "showUserMessages"), object: nil, userInfo: userInfo)
         }
     }
@@ -300,6 +324,24 @@ class NavVC: UINavigationController, UICollectionViewDelegate, UICollectionViewD
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
         self.view.transform = CGAffineTransform.identity
     }    
+}
+
+extension NavVC:UISearchBarDelegate{
+    
+  
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        filtered = items.filter({ (user) -> Bool in
+            return user.name.lowercased().contains(searchText.lowercased())
+        })
+        if(filtered.count == 0){
+            searchActive = false;
+        } else {
+            searchActive = true;
+        }
+        self.collectionView.reloadData()
+    }
+    
+
 }
 
 
