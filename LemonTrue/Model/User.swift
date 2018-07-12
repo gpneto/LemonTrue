@@ -149,6 +149,92 @@ class User: NSObject {
             }
         })
     }
+
+    
+    
+    class func blockUser(user: User, completion: @escaping (Bool) -> Swift.Void) {
+        
+        if let currentUserID = Auth.auth().currentUser?.uid {
+            
+            Database.database().reference().child("users").child(currentUserID).child("usersBlock").child(user.id).setValue(true, withCompletionBlock: { (errr, _) in
+                if errr == nil {
+                    completion(true)
+                }
+            })
+            
+        }
+    }
+    
+    class func desblockUser(user: User, completion: @escaping (Bool) -> Swift.Void) {
+        
+        if let currentUserID = Auth.auth().currentUser?.uid {
+            
+            Database.database().reference().child("users").child(currentUserID).child("usersBlock").child(user.id).setValue(false, withCompletionBlock: { (errr, _) in
+                if errr == nil {
+                    completion(true)
+                }
+            })
+            
+        }
+    }
+    
+    
+    class func checkBlockUser(user: User, completion: @escaping (Bool) -> Swift.Void) {
+        
+        if let currentUserID = Auth.auth().currentUser?.uid {
+            Database.database().reference().child("users").child(currentUserID).child("usersBlock").child(user.id).observeSingleEvent(of: .value, with: { (snapshot) in
+               
+                if snapshot.exists() {
+                    
+                    let value = snapshot.value as? Bool
+                    if(value)!{
+                         completion(true)
+                        return
+                    }else{
+                         completion(false)
+                    }
+                   
+                   
+                }else{
+                     completion(false)
+       
+                }
+                
+              
+            })
+            
+        }
+        
+    }
+    
+    class func checkBlockUserMy(user: User, completion: @escaping (Bool) -> Swift.Void) {
+        
+        if let currentUserID = Auth.auth().currentUser?.uid {
+            Database.database().reference().child("users").child(user.id).child("usersBlock").child(currentUserID).observeSingleEvent(of: .value, with: { (snapshot) in
+                
+                if snapshot.exists() {
+                    
+                    let value = snapshot.value as? Bool
+                    if(value)!{
+                        completion(true)
+                    }else {
+                         completion(false)
+                    }
+                    
+                    
+                }else{
+                    completion(false)
+           
+                }
+               
+                
+            })
+            
+        }
+        
+    }
+    
+    
     
     class func downloadAllUsers(exceptID: String, completion: @escaping (User) -> Swift.Void) {
         Database.database().reference().child("users").observe(.childAdded, with: { (snapshot) in

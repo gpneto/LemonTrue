@@ -109,12 +109,9 @@ class ConversationsRecVC: UIViewController, UITableViewDelegate, UITableViewData
     
     //Show EmailVerification on the bottom
     @objc func showEmailAlert() {
-        User.checkUserVerification {[weak weakSelf = self] (status) in
-            status == true ? (weakSelf?.alertBottomConstraint.constant = -40) : (weakSelf?.alertBottomConstraint.constant = 0)
-            UIView.animate(withDuration: 0.3) {
-                weakSelf?.view.layoutIfNeeded()
-                weakSelf = nil
-            }
+        self.alertBottomConstraint.constant = 0
+        UIView.animate(withDuration: 0.3) {
+            self.view.layoutIfNeeded()
         }
     }
     

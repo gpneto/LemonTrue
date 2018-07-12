@@ -53,6 +53,7 @@ class ChatVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UITe
     
     //MARK: Methods
     func customization() {
+       
         self.imagePicker.delegate = self
         self.tableView.estimatedRowHeight = self.barHeight
         self.tableView.rowHeight = UITableViewAutomaticDimension
@@ -68,6 +69,39 @@ class ChatVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UITe
         let backButton = UIBarButtonItem.init(image: icon!, style: .plain, target: self, action: #selector(self.dismissSelf))
         self.navigationItem.leftBarButtonItem = backButton
         self.locationManager.delegate = self
+        
+        
+        if(recebida){
+            
+            User.checkBlockUser(user: self.currentUser!) { (sucess) in
+                if(sucess){
+                    let icone = UIImage.init(named: "bloqueio_ativo")?.withRenderingMode(.alwaysOriginal)
+                    let rightButton = UIBarButtonItem.init(image: icone!, style: .plain, target: self, action: #selector(self.desblockUser))
+                    self.navigationItem.rightBarButtonItem = rightButton
+                }else {
+                    let icone = UIImage.init(named: "bloqueio")?.withRenderingMode(.alwaysOriginal)
+                    let rightButton = UIBarButtonItem.init(image: icone!, style: .plain, target: self, action: #selector(self.blockUser))
+                    self.navigationItem.rightBarButtonItem = rightButton
+                }
+            }
+            
+            
+          
+            
+            
+        }else{
+            User.checkBlockUserMy(user: self.currentUser!) { (sucess) in
+                if(sucess){
+                    self.animateBlock(toHide: true);
+                }else {
+                    self.animateBlock(toHide: false);
+
+                }
+            }
+ 
+           
+        }
+        
     }
     
     //Downloads messages
@@ -108,6 +142,44 @@ class ChatVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UITe
         }
     }
     
+    //Hides current viewcontroller
+    @objc func blockUser() {
+        var refreshAlert = UIAlertController(title: "Bloquear", message: "Tem certeza que deseja bloquear o Usuário?", preferredStyle: .alert)
+        
+        refreshAlert.addAction(UIAlertAction(title: "Sim", style: .default, handler: { (action: UIAlertAction!) in
+            User.blockUser(user: self.currentUser!, completion: { (sucesss) in
+                let icone = UIImage.init(named: "bloqueio_ativo")?.withRenderingMode(.alwaysOriginal)
+                let rightButton = UIBarButtonItem.init(image: icone!, style: .plain, target: self, action: #selector(self.blockUser))
+                self.navigationItem.rightBarButtonItem = rightButton
+            })
+        }))
+        
+        refreshAlert.addAction(UIAlertAction(title: "Não", style: .cancel, handler: { (action: UIAlertAction!) in
+            
+        }))
+        
+        present(refreshAlert, animated: true, completion: nil)
+    }
+    
+    //Hides current viewcontroller
+    @objc func desblockUser() {
+        var refreshAlert = UIAlertController(title: "Desboquear", message: "Tem certeza que deseja desbloquear o Usuário?", preferredStyle: .alert)
+        
+        refreshAlert.addAction(UIAlertAction(title: "Sim", style: .default, handler: { (action: UIAlertAction!) in
+            User.desblockUser(user: self.currentUser!, completion: { (sucesss) in
+                let icone = UIImage.init(named: "bloqueio")?.withRenderingMode(.alwaysOriginal)
+                let rightButton = UIBarButtonItem.init(image: icone!, style: .plain, target: self, action: #selector(self.blockUser))
+                self.navigationItem.rightBarButtonItem = rightButton
+            })
+        }))
+        
+        refreshAlert.addAction(UIAlertAction(title: "Não", style: .cancel, handler: { (action: UIAlertAction!) in
+            
+        }))
+        
+        present(refreshAlert, animated: true, completion: nil)
+    }
+    
     func composeMessage(type: MessageType, content: Any)  {
         let message = Message.init(type: type, content: content, owner: .sender, timestamp: Int(Date().timeIntervalSince1970), isRead: false)
         Message.send(message: message, toID: self.currentUser!.id, recebida: recebida, completion: {(_) in
@@ -135,6 +207,22 @@ class ChatVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UITe
             }
         default:
             self.bottomConstraint.constant = -50
+            UIView.animate(withDuration: 0.3) {
+                self.inputBar.layoutIfNeeded()
+            }
+        }
+    }
+    
+    
+    func animateBlock(toHide: Bool)  {
+        switch toHide {
+        case false:
+            self.bottomConstraint.constant = 0
+            UIView.animate(withDuration: 0.3) {
+                self.inputBar.layoutIfNeeded()
+            }
+        default:
+            self.bottomConstraint.constant = -100
             UIView.animate(withDuration: 0.3) {
                 self.inputBar.layoutIfNeeded()
             }
