@@ -46,7 +46,7 @@ class ConversationsVC: UIViewController, UITableViewDelegate, UITableViewDataSou
         self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedStringKey.font: navigationTitleFont, NSAttributedStringKey.foregroundColor: UIColor.black]
         // notification setup
         NotificationCenter.default.addObserver(self, selector: #selector(self.pushToUserMesssages(notification:)), name: NSNotification.Name(rawValue: "showUserMessages"), object: nil)
-    
+        NotificationCenter.default.addObserver(self, selector: #selector(self.showEmailAlert), name: Notification.Name.UIApplicationDidBecomeActive, object: nil)
         //right bar button
         let icon = UIImage.init(named: "users")?.withRenderingMode(.alwaysOriginal)
         let rightButton = UIBarButtonItem.init(image: icon!, style: .plain, target: self, action: #selector(ConversationsVC.showContacts))
@@ -105,6 +105,16 @@ class ConversationsVC: UIViewController, UITableViewDelegate, UITableViewDataSou
         NotificationCenter.default.post(name: NSNotification.Name(rawValue: "showExtraView"), object: nil, userInfo: info)
     }
     
+    //Show EmailVerification on the bottom
+    @objc func showEmailAlert() {
+        User.checkUserVerification {[weak weakSelf = self] (status) in
+            status == true ? (weakSelf?.alertBottomConstraint.constant = -40) : (weakSelf?.alertBottomConstraint.constant = 0)
+            UIView.animate(withDuration: 0.3) {
+                weakSelf?.view.layoutIfNeeded()
+                weakSelf = nil
+            }
+        }
+    }
     
     //Shows Chat viewcontroller with given user
     @objc func pushToUserMesssages(notification: NSNotification) {
@@ -205,6 +215,7 @@ class ConversationsVC: UIViewController, UITableViewDelegate, UITableViewDataSou
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+        self.showEmailAlert()
     }
     
     override func viewWillAppear(_ animated: Bool) {
