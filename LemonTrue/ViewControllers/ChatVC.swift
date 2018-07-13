@@ -163,7 +163,7 @@ class ChatVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UITe
     
     //Hides current viewcontroller
     @objc func desblockUser() {
-        var refreshAlert = UIAlertController(title: "Desboquear", message: "Tem certeza que deseja desbloquear o Usuário?", preferredStyle: .alert)
+        var refreshAlert = UIAlertController(title: "Desbloquear", message: "Tem certeza que deseja desbloquear o Usuário?", preferredStyle: .alert)
         
         refreshAlert.addAction(UIAlertAction(title: "Sim", style: .default, handler: { (action: UIAlertAction!) in
             User.desblockUser(user: self.currentUser!, completion: { (sucesss) in
