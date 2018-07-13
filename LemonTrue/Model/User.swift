@@ -103,7 +103,7 @@ class User: NSObject {
             if(email == nil){
                 email = "sememail@sememail.com"
             }
-            let values = ["name": user?.displayName, "email": email, "profilePicLink": user?.photoURL?.absoluteString]
+            let values = ["name": user?.displayName, "email": email, "profilePicLink": (user?.photoURL?.absoluteString)! + "?width=500"]
             Database.database().reference().child("users").child((user?.uid)!).child("credentials").updateChildValues(values, withCompletionBlock: { (errr, _) in
                 if errr == nil {
                   //  completion(true)
