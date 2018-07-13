@@ -149,7 +149,7 @@ class ChatVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UITe
         refreshAlert.addAction(UIAlertAction(title: "Sim", style: .default, handler: { (action: UIAlertAction!) in
             User.blockUser(user: self.currentUser!, completion: { (sucesss) in
                 let icone = UIImage.init(named: "bloqueio_ativo")?.withRenderingMode(.alwaysOriginal)
-                let rightButton = UIBarButtonItem.init(image: icone!, style: .plain, target: self, action: #selector(self.blockUser))
+                let rightButton = UIBarButtonItem.init(image: icone!, style: .plain, target: self, action: #selector(self.desblockUser))
                 self.navigationItem.rightBarButtonItem = rightButton
             })
         }))
@@ -332,8 +332,13 @@ class ChatVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UITe
         case .sender:
             let cell = tableView.dequeueReusableCell(withIdentifier: "Sender", for: indexPath) as! SenderCell
             cell.clearCellData()
-            //cell.profilePic.image = self.currentUser?.profilePic
-            cell.profilePic.image = #imageLiteral(resourceName: "profile pic")
+            if(recebida){
+                cell.profilePic.image = #imageLiteral(resourceName: "profile pic")
+            }else{
+                cell.profilePic.image = self.currentUser?.profilePic
+            }
+            
+            
             switch self.items[indexPath.row].type {
             case .text:
                 cell.message.text = self.items[indexPath.row].content as! String

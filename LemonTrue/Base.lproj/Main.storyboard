@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="w0U-Uf-CLS">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="w0U-Uf-CLS">
     <device id="retina5_5" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -317,20 +317,20 @@
                             </collectionViewFlowLayout>
                             <cells>
                                 <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="Cell" id="moc-md-t15" customClass="ContactsCVCell" customModule="LemonTrue" customModuleProvider="target">
-                                    <rect key="frame" x="0.0" y="17.666666666666668" width="120" height="123"/>
+                                    <rect key="frame" x="0.0" y="4" width="146" height="150"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                        <rect key="frame" x="0.0" y="0.0" width="120" height="123"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="146" height="150"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MUl-7g-HuL">
-                                                <rect key="frame" x="12" y="124" width="96" height="21"/>
+                                                <rect key="frame" x="15" y="144" width="116" height="21"/>
                                                 <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="15"/>
                                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="imageView:TQ4-BL-2xE:image" translatesAutoresizingMaskIntoConstraints="NO" id="TQ4-BL-2xE" customClass="RoundedImageView" customModule="LemonTrue" customModuleProvider="target">
-                                                <rect key="frame" x="12" y="18" width="96" height="96"/>
+                                                <rect key="frame" x="15" y="18" width="116" height="116"/>
                                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" secondItem="TQ4-BL-2xE" secondAttribute="height" multiplier="1:1" id="caG-dQ-eLy"/>
@@ -347,14 +347,14 @@
                                         <constraint firstItem="TQ4-BL-2xE" firstAttribute="centerX" secondItem="moc-md-t15" secondAttribute="centerX" id="ZXi-wg-dWu"/>
                                         <constraint firstItem="MUl-7g-HuL" firstAttribute="centerX" secondItem="moc-md-t15" secondAttribute="centerX" id="eoS-rv-3el"/>
                                     </constraints>
-                                    <size key="customSize" width="120" height="123"/>
+                                    <size key="customSize" width="146" height="150"/>
                                     <connections>
                                         <outlet property="nameLabel" destination="MUl-7g-HuL" id="1UM-ec-7yi"/>
                                         <outlet property="profilePic" destination="TQ4-BL-2xE" id="j1L-UV-Uxg"/>
                                     </connections>
                                 </collectionViewCell>
                                 <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="Empty Cell" id="Fv8-Bu-tn0" customClass="ContactsCVCell" customModule="LemonTrue" customModuleProvider="target">
-                                    <rect key="frame" x="130" y="0.0" width="164" height="158"/>
+                                    <rect key="frame" x="156" y="0.0" width="164" height="158"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                         <rect key="frame" x="0.0" y="0.0" width="164" height="158"/>
@@ -396,9 +396,10 @@
                                 <action selector="closeView:" destination="q2X-MD-tSJ" eventType="touchUpInside" id="PfH-XB-zcX"/>
                             </connections>
                         </button>
-                        <searchBar contentMode="redraw" searchBarStyle="prominent" translatesAutoresizingMaskIntoConstraints="NO" id="FCI-Ly-Ogm">
+                        <searchBar contentMode="redraw" barStyle="blackTranslucent" searchBarStyle="prominent" translatesAutoresizingMaskIntoConstraints="NO" id="FCI-Ly-Ogm">
                             <rect key="frame" x="0.0" y="0.0" width="387" height="56"/>
-                            <color key="barTintColor" red="0.94117647059999998" green="0.58431372550000005" blue="0.1960784314" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <color key="backgroundColor" red="0.45085787770000002" green="0.98829740290000001" blue="0.83763033149999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <color key="barTintColor" red="0.94117647059999998" green="0.58431372550000005" blue="0.1960784314" alpha="0.34840539383561642" colorSpace="custom" customColorSpace="sRGB"/>
                             <textInputTraits key="textInputTraits"/>
                         </searchBar>
                     </subviews>
@@ -976,13 +977,15 @@
                         <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="thE-GF-lTj">
                             <rect key="frame" x="0.0" y="166.66666666666666" width="376" height="50.333333333333343"/>
                             <subviews>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Usuario Bloqueado" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="80g-fc-pWe">
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Usuário Bloqueado para Envio de Mensagens" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="80g-fc-pWe">
                                     <rect key="frame" x="0.0" y="14.999999999999998" width="376" height="20.333333333333329"/>
+                                    <color key="backgroundColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                     <nil key="textColor"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                             </subviews>
+                            <color key="backgroundColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="50" id="sfT-XW-1rH"/>
                             </constraints>

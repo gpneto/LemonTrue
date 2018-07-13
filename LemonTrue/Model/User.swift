@@ -168,7 +168,6 @@ class User: NSObject {
     class func desblockUser(user: User, completion: @escaping (Bool) -> Swift.Void) {
         
         if let currentUserID = Auth.auth().currentUser?.uid {
-            
             Database.database().reference().child("users").child(currentUserID).child("usersBlock").child(user.id).setValue(false, withCompletionBlock: { (errr, _) in
                 if errr == nil {
                     completion(true)
